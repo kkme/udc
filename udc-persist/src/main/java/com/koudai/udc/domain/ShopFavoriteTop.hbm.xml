@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.koudai.udc.domain">
+	<class name="ShopFavoriteTop" table="shop_favorite_top">
+		<id column="ID" name="id" type="long">
+			<generator class="identity" />
+		</id>
+		<property name="shopId" column="shopID" not-null="true" type="string" />
+		<property name="favoritedNum" column="favoritedNum" not-null="true" type="int" />
+		<property name="statTime" column="statTime" not-null="true" type="timestamp" />
+	</class>
+</hibernate-mapping>

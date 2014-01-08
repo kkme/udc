@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.koudai.udc.domain">
+	<class name="TaobaoBindingInfo" table="taobao_binding_info">
+		<id column="id" name="id" type="long">
+			<generator class="identity" />
+		</id>
+		<property name="userId" column="userID" not-null="true" type="string" />
+		<property name="bindId" column="bindID" not-null="true" type="string" />
+		<property name="bound" column="bound" not-null="true" type="boolean" />
+	</class>
+</hibernate-mapping>

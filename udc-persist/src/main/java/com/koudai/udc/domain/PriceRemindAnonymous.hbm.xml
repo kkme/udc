@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.koudai.udc.domain">
+	<class name="PriceRemindAnonymous" table="price_remind_anonymous">
+		<id column="ID" name="id" type="long">
+			<generator class="identity" />
+		</id>
+		<property name="productId" column="productID" not-null="true" type="string" />
+		<property name="email" column="email" not-null="true" type="string" />
+		<property name="subscribeTime" column="subscribeTime" not-null="true" type="timestamp" />
+		<property name="subscribePrice" column="subscribePrice" not-null="true" type="big_decimal" />
+		<property name="productUrl" column="productUrl" not-null="true" type="string" />
+		<property name="currentPrice" column="currentPrice" not-null="false" type="big_decimal" />
+		<property name="targetPrice" column="targetPrice" not-null="false" type="big_decimal" />
+		<property name="lastNoticeTime" column="lastNoticeTime" not-null="false" type="timestamp" />
+		<property name="noticeNumber" column="noticeNumber" not-null="false" type="int" />
+		<property name="canRemind" column="canRemind" not-null="false" type="int" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.6"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="@data_path@dbchangelog-1.6.xsd"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.6 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.6.xsd">
+
+	<preConditions>
+		<dbms type="mysql" />
+	</preConditions>
+
+	<changeSet id="1" author="sh">
+		<insert tableName="product_collect_bijia">
+			<column name="id" valueNumeric="1" />
+			<column name="productID" value="p1" />
+			<column name="collectTime" value="2011-01-01 00:00:00" />
+			<column name="machineID" value="m1" />
+			<column name="networkID" value="" />
+			<column name="userID" value="@sina:123" />
+			<column name="softwareVersion" value="" />
+			<column name="softwareName" value="" />
+			<column name="firmWareVersion" value="" />
+			<column name="referID" value="" />
+			<column name="priceReduction" valueNumeric="1" />
+			<column name="stockNotice" valueNumeric="0" />
+			<column name="status" valueNumeric="0" />
+		</insert>
+		<insert tableName="product_collect_bijia">
+			<column name="id" valueNumeric="2" />
+			<column name="productID" value="p2" />
+			<column name="collectTime" value="2011-01-02 00:00:00" />
+			<column name="machineID" value="m2" />
+			<column name="networkID" value="" />
+			<column name="userID" value="@sina:123" />
+			<column name="softwareVersion" value="" />
+			<column name="softwareName" value="" />
+			<column name="firmWareVersion" value="" />
+			<column name="referID" value="" />
+			<column name="priceReduction" valueNumeric="1" />
+			<column name="stockNotice" valueNumeric="0" />
+			<column name="status" valueNumeric="0" />
+		</insert>
+		<insert tableName="product_collect_bijia">
+			<column name="id" valueNumeric="3" />
+			<column name="productID" value="p3" />
+			<column name="collectTime" value="2011-01-01 00:00:00" />
+			<column name="machineID" value="m2" />
+			<column name="networkID" value="" />
+			<column name="userID" value="@sina:123" />
+			<column name="softwareVersion" value="" />
+			<column name="softwareName" value="" />
+			<column name="firmWareVersion" value="" />
+			<column name="referID" value="" />
+			<column name="priceReduction" valueNumeric="0" />
+			<column name="stockNotice" valueNumeric="0" />
+			<column name="status" valueNumeric="0" />
+		</insert>
+		<insert tableName="product_collect_bijia">
+			<column name="id" valueNumeric="4" />
+			<column name="productID" value="p4" />
+			<column name="collectTime" value="2011-01-04 00:00:00" />
+			<column name="machineID" value="m2" />
+			<column name="networkID" value="" />
+			<column name="userID" value="@sina:123" />
+			<column name="softwareVersion" value="" />
+			<column name="softwareName" value="" />
+			<column name="firmWareVersion" value="" />
+			<column name="referID" value="" />
+			<column name="priceReduction" valueNumeric="0" />
+			<column name="stockNotice" valueNumeric="0" />
+			<column name="status" valueNumeric="0" />
+		</insert>
+		<insert tableName="product_collect_bijia">
+			<column name="id" valueNumeric="5" />
+			<column name="productID" value="p5" />
+			<column name="collectTime" value="2011-01-05 00:00:00" />
+			<column name="machineID" value="m2" />
+			<column name="networkID" value="" />
+			<column name="userID" value="@sina:123" />
+			<column name="softwareVersion" value="" />
+			<column name="softwareName" value="" />
+			<column name="firmWareVersion" value="" />
+			<column name="referID" value="" />
+			<column name="priceReduction" valueNumeric="1" />
+			<column name="stockNotice" valueNumeric="0" />
+			<column name="status" valueNumeric="0" />
+		</insert>
+	</changeSet>
+
+</databaseChangeLog>

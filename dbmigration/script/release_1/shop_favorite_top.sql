@@ -1,0 +1,1 @@
+create table shop_favorite_top(id BIGINT(13) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,shopID varchar(1024) NOT NULL,favoritedNum integer NOT NULL,statTime date NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;

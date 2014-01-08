@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean name="md5Generator" class="com.koudai.udc.service.impl.SimpleMd5Generator">
+		<property name="passwordEncoder">
+			<ref bean="passwordEncoder" />
+		</property>
+	</bean>
+	
+	<bean name="userDataService" class="com.koudai.udc.service.impl.UserDataServiceImpl">
+		<property name="counterService">
+			<ref bean="counterService" />
+		</property>
+		<property name="productCollectDAOW">
+			<ref bean="productCollectDAOW" />
+		</property>
+		<property name="productCollectDAOR">
+			<ref bean="productCollectDAOR" />
+		</property>
+		<property name="shopFavoriteDAOW">
+			<ref bean="shopFavoriteDAOW" />
+		</property>
+		<property name="shopFavoriteDAOR">
+			<ref bean="shopFavoriteDAOR" />
+		</property>
+		<property name="productCollectFactory">
+			<ref bean="productCollectFactory" />
+		</property>
+		<property name="shopFavoriteFactory">
+			<ref bean="shopFavoriteFactory" />
+		</property>
+	</bean>
+	
+	<bean name="productRemindService" class="com.koudai.udc.service.impl.ProductRemindServiceImpl">
+		<property name="productCollectBijiaDAOW">
+			<ref bean="productCollectBijiaDAOW" />
+		</property>
+		<property name="productCollectBijiaDAOR">
+			<ref bean="productCollectBijiaDAOR" />
+		</property>
+		<property name="priceRemindDAOW">
+			<ref bean="priceRemindDAOW" />
+		</property>
+		<property name="priceRemindDAOR">
+			<ref bean="priceRemindDAOR" />
+		</property>
+		<property name="productCollectBijiaFactory">
+			<ref bean="productCollectBijiaFactory" />
+		</property>
+		<property name="priceRemindFactory">
+			<ref bean="priceRemindFactory" />
+		</property>
+	</bean>
+	
+	<bean id="taobaoConfiguration" class="com.koudai.udc.service.impl.TaobaoConfiguration">
+		<constructor-arg>
+			<ref local="taobaoProperties" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="taobaoProperties" class="com.koudai.udc.service.impl.FileBasedProperties">
+		<constructor-arg>
+			<value>taobao</value>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="myStreetConfiguration" class="com.koudai.udc.service.impl.MyStreetConfiguration">
+		<constructor-arg>
+			<ref local="myStreetProperties" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="myStreetProperties" class="com.koudai.udc.service.impl.FileBasedProperties">
+		<constructor-arg>
+			<value>mystreet</value>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="qqConfiguration" class="com.koudai.udc.service.impl.QQConfiguration">
+		<constructor-arg>
+			<ref local="qqProperties" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="qqProperties" class="com.koudai.udc.service.impl.FileBasedProperties">
+		<constructor-arg>
+			<value>qq</value>
+		</constructor-arg>
+	</bean>
+</beans>

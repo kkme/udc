@@ -1,0 +1,1 @@
+ALTER TABLE product_collect_week_top ADD index(week, year, typeID);

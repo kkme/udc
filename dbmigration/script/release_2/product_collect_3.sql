@@ -1,0 +1,1 @@
+ALTER TABLE product_collect ADD UNIQUE(userID(50), productID(30));

@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:webflow="http://www.springframework.org/schema/webflow-config"
+       xmlns:p="http://www.springframework.org/schema/p"       
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/webflow-config http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.0.xsd">
+       
+    	<bean id="customViewMappings" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/login">loginController</prop>
+				<prop key="/loginTaoBao.html">loginTaoBaoController</prop>
+				<prop key="/loginSina.html">loginSinaController</prop>
+				<prop key="/loginQQ.html">loginQQController</prop>
+				<prop key="/logout">logoutBeforeController</prop>
+				<prop key="/logout2">logout2BeforeController</prop>
+				<prop key="/logoutClient.html">logoutClientController</prop>
+				<prop key="/logoutClient2.html">logoutClient2Controller</prop>
+				<prop key="/verifyTaoBaoUser.html">verifyTaoBaoUserController</prop>
+				<prop key="/verifyBijiaTaoBaoUser.html">verifyBijiaTaoBaoUserController</prop>
+				<prop key="/testCallback.html">testCallback</prop>
+				<prop key="/verifySinaUser.html">verifySinaUserController</prop>
+				<prop key="/verifyQQUser.html">verifyQQUserController</prop>
+				<prop key="/top_monitor.html">monitorController</prop>
+				<prop key="/bindTaobao.html">bindTaobaoController</prop>
+				<prop key="/processBindTaobaoResponse.html">processBindTaobaoResponseController</prop>
+			</props>
+		</property>
+		<property name="alwaysUseFullPath" value="true" />
+	</bean>
+
+    <bean id="loginController" class="org.springframework.webflow.mvc.servlet.FlowController"> 
+		<property name="flowExecutor" ref="flowExecutor"/> 
+	</bean>
+    <webflow:flow-executor id="flowExecutor" flow-registry="flowRegistry">
+        <webflow:flow-execution-attributes>
+            <webflow:always-redirect-on-pause value="false" />
+        </webflow:flow-execution-attributes>
+    </webflow:flow-executor>
+    <webflow:flow-registry id="flowRegistry" flow-builder-services="builder">
+        <webflow:flow-location path="/WEB-INF/classes/login-webflow.xml" id="login" />
+    </webflow:flow-registry>
+
+    <bean id="loginTaoBaoController" class="org.springframework.webflow.mvc.servlet.FlowController"> 
+		<property name="flowExecutor" ref="taobaoLoginFlowExecutor"/> 
+	</bean>
+    <webflow:flow-executor id="taobaoLoginFlowExecutor" flow-registry="taobaoLoginFlowRegistry">
+        <webflow:flow-execution-attributes>
+            <webflow:always-redirect-on-pause value="false" />
+        </webflow:flow-execution-attributes>
+    </webflow:flow-executor>
+    <webflow:flow-registry id="taobaoLoginFlowRegistry" flow-builder-services="builder">
+        <webflow:flow-location path="/WEB-INF/classes/taobao-login-webflow.xml" id="loginTaoBao" />
+    </webflow:flow-registry>
+    
+    <bean id="loginSinaController" class="org.springframework.webflow.mvc.servlet.FlowController"> 
+		<property name="flowExecutor" ref="sinaLoginFlowExecutor"/> 
+	</bean>
+    <webflow:flow-executor id="sinaLoginFlowExecutor" flow-registry="sinaLoginFlowRegistry">
+        <webflow:flow-execution-attributes>
+            <webflow:always-redirect-on-pause value="false" />
+        </webflow:flow-execution-attributes>
+    </webflow:flow-executor>
+    <webflow:flow-registry id="sinaLoginFlowRegistry" flow-builder-services="builder">
+        <webflow:flow-location path="/WEB-INF/classes/sina-login-webflow.xml" id="loginSina" />
+    </webflow:flow-registry>
+    
+    <bean id="loginQQController" class="org.springframework.webflow.mvc.servlet.FlowController"> 
+		<property name="flowExecutor" ref="qqLoginFlowExecutor"/> 
+	</bean>
+    <webflow:flow-executor id="qqLoginFlowExecutor" flow-registry="qqLoginFlowRegistry">
+        <webflow:flow-execution-attributes>
+            <webflow:always-redirect-on-pause value="false" />
+        </webflow:flow-execution-attributes>
+    </webflow:flow-executor>
+    <webflow:flow-registry id="qqLoginFlowRegistry" flow-builder-services="builder">
+        <webflow:flow-location path="/WEB-INF/classes/qq-login-webflow.xml" id="loginQQ" />
+    </webflow:flow-registry>
+
+    <bean id="verifyTaoBaoUserController" class="org.springframework.webflow.mvc.servlet.FlowController"> 
+		<property name="flowExecutor" ref="taobaoReturnFlowExecutor"/> 
+	</bean>
+    <webflow:flow-executor id="taobaoReturnFlowExecutor" flow-registry="taobaoReturnFlowRegistry">
+        <webflow:flow-execution-attributes>
+            <webflow:always-redirect-on-pause value="false" />
+        </webflow:flow-execution-attributes>
+    </webflow:flow-executor>
+    <webflow:flow-registry id="taobaoReturnFlowRegistry" flow-builder-services="builder">
+        <webflow:flow-location path="/WEB-INF/classes/taobao-return-webflow.xml" id="verifyTaoBaoUser" />
+    </webflow:flow-registry>
+    
+    <bean id="verifyBijiaTaoBaoUserController" class="org.springframework.webflow.mvc.servlet.FlowController"> 
+		<property name="flowExecutor" ref="taobaoBijiaReturnFlowExecutor"/> 
+	</bean>
+    <webflow:flow-executor id="taobaoBijiaReturnFlowExecutor" flow-registry="taobaoBijiaReturnFlowRegistry">
+        <webflow:flow-execution-attributes>
+            <webflow:always-redirect-on-pause value="false" />
+        </webflow:flow-execution-attributes>
+    </webflow:flow-executor>
+    <webflow:flow-registry id="taobaoBijiaReturnFlowRegistry" flow-builder-services="builder">
+        <webflow:flow-location path="/WEB-INF/classes/taobao-return-bijia-webflow.xml" id="verifyBijiaTaoBaoUser" />
+    </webflow:flow-registry>
+    
+    <bean id="verifySinaUserController" class="org.springframework.webflow.mvc.servlet.FlowController"> 
+		<property name="flowExecutor" ref="sinaReturnFlowExecutor"/> 
+	</bean>
+    <webflow:flow-executor id="sinaReturnFlowExecutor" flow-registry="sinaReturnFlowRegistry">
+        <webflow:flow-execution-attributes>
+            <webflow:always-redirect-on-pause value="false" />
+        </webflow:flow-execution-attributes>
+    </webflow:flow-executor>
+    <webflow:flow-registry id="sinaReturnFlowRegistry" flow-builder-services="builder">
+        <webflow:flow-location path="/WEB-INF/classes/sina-return-webflow.xml" id="verifySinaUser" />
+    </webflow:flow-registry>
+    
+     <bean id="verifyQQUserController" class="org.springframework.webflow.mvc.servlet.FlowController"> 
+		<property name="flowExecutor" ref="qqReturnFlowExecutor"/> 
+	</bean>
+    <webflow:flow-executor id="qqReturnFlowExecutor" flow-registry="qqReturnFlowRegistry">
+        <webflow:flow-execution-attributes>
+            <webflow:always-redirect-on-pause value="false" />
+        </webflow:flow-execution-attributes>
+    </webflow:flow-executor>
+    <webflow:flow-registry id="qqReturnFlowRegistry" flow-builder-services="builder">
+        <webflow:flow-location path="/WEB-INF/classes/qq-return-webflow.xml" id="verifyQQUser" />
+    </webflow:flow-registry>
+    
+   	<bean id="logoutBeforeController" class="com.koudai.udc.controller.LogoutBeforeController" scope="prototype">
+		<property name="redirectUrl" value="${logout_redirect_url}" />
+	</bean>
+	
+   	<bean id="logout2BeforeController" class="com.koudai.udc.controller.LogoutBeforeController" scope="prototype">
+		<property name="redirectUrl" value="${logout_redirect2_url}" />
+	</bean>
+	
+   	<bean id="testCallback" class="com.koudai.udc.controller.TestCallbackController" scope="prototype">
+		<property name="redirectUrl" value="${server_https_prefix}" />
+		<property name="appkey" value="${taobao_meitu_app_key}" />
+		<property name="secret" value="${taobao_meitu_app_secret}" />
+		<property name="serverUrl" value="${taobao_server_url}" />
+	</bean>
+	
+	<bean id="logoutClientController" class="com.koudai.udc.controller.LogoutController" scope="prototype">
+		<property name="successView" value="customLogoutView"/>
+		<property name="allLogoutUrl" value="${all_logout_url}"/>
+	</bean>
+	
+	<bean id="logoutClient2Controller" class="com.koudai.udc.controller.Logout2Controller" scope="prototype">
+		<property name="successView" value="customLogoutView"/>
+		<property name="allLogoutUrl" value="${all_logout_url}"/>
+		<property name="taobaoConfiguration" ref="taobaoConfiguration"/>
+	</bean>
+	
+	<bean id="monitorController" class="com.koudai.udc.controller.SimpleController" scope="prototype">
+		<property name="viewName" value="monitor" />
+	</bean>
+	
+	<bean id="cookieControllerService" class="com.koudai.udc.service.impl.CookieControllerServiceImpl" />
+	
+    <bean id="myGenerateServiceTicketAction" class="com.koudai.udc.action.GenerateServiceTicketAction"
+	    p:centralAuthenticationService-ref="centralAuthenticationService" 
+	    	p:ticketRegistry-ref="ticketRegistry"
+	    	p:ticketGrantingTicketCookieGenerator-ref="ticketGrantingTicketCookieGenerator"
+	    	p:warnCookieGenerator-ref="warnCookieGenerator"
+	    	p:tgtExpiredlogoutUrl="${logoutUrl_tgt_expired}"
+	    	p:cookieControllerService-ref="cookieControllerService"
+	    	scope="prototype"/>
+	    	
+	<bean id="lastRedirectFormAction" class="com.koudai.udc.action.LastRedirectFormAction" scope="prototype"/>
+	
+	<bean id="getTaoBaoCodeAction" class="com.koudai.udc.action.GetTaoBaoCodeAction" 
+		p:thinkerDomain="${thinker_domain}"
+		p:taobaoConfiguration-ref="taobaoConfiguration"
+		p:cookieControllerService-ref="cookieControllerService"
+		scope="prototype"/>
+		
+	<bean id="getSinaCodeAction" class="com.koudai.udc.action.GetSinaCodeAction" 
+		p:thinkerDomain="${thinker_domain}"
+		p:sinaConfiguration-ref="sinaConfiguration"
+		p:cookieControllerService-ref="cookieControllerService"
+		scope="prototype"/>
+		
+	<bean id="getQQCodeAction" class="com.koudai.udc.action.GetQQCodeAction" 
+		p:thinkerDomain="${thinker_domain}"
+		p:qqConfiguration-ref="qqConfiguration"
+		p:cookieControllerService-ref="cookieControllerService"
+		scope="prototype"/>
+	
+	<bean id="verifyTaoBaoTokenAction" class="com.koudai.udc.action.VerifyTaoBaoTokenAction" 
+		p:taobaoConfiguration-ref="taobaoConfiguration"
+		p:cookieControllerService-ref="cookieControllerService"
+		scope="prototype"/>
+		
+	<bean id="verifyBijiaTaoBaoUserAction" class="com.koudai.udc.action.VerifyBijiaTaoBaoUserAction" 
+		p:taobaoConfiguration-ref="taobaoConfiguration"
+		p:cookieControllerService-ref="cookieControllerService"
+		scope="prototype"/>
+		
+	<bean id="verifySinaTokenAction" class="com.koudai.udc.action.VerifySinaTokenAction" 
+		p:sinaConfiguration-ref="sinaConfiguration"
+		p:cookieControllerService-ref="cookieControllerService"
+		scope="prototype"/>
+		
+	<bean id="verifyQQTokenAction" class="com.koudai.udc.action.VerifyQQTokenAction" 
+		p:qqConfiguration-ref="qqConfiguration"
+		p:cookieControllerService-ref="cookieControllerService"
+		scope="prototype"/>
+		
+	<bean id="checkTaoBaoUserExistAction" class="com.koudai.udc.action.CheckTaoBaoUserExistAction"
+		p:cookieMaxAge="${cookie_max_age}"
+		p:cookieControllerService-ref="cookieControllerService"
+		p:taobaoUserInfoService-ref="taobaoUserInfoService"
+		p:taobaoConfiguration-ref="taobaoConfiguration"
+		scope="prototype"/>
+		
+	<bean id="checkSinaUserExistAction" class="com.koudai.udc.action.CheckSinaUserExistAction"
+		p:cookieMaxAge="${cookie_max_age}"
+		p:cookieControllerService-ref="cookieControllerService"
+		p:sinaWeiboUserInfoService-ref="sinaWeiboUserInfoService"
+		p:sinaConfiguration-ref="sinaConfiguration"
+		scope="prototype"/>
+		
+	<bean id="checkQQUserExistAction" class="com.koudai.udc.action.CheckQQUserExistAction"
+		p:cookieMaxAge="${cookie_max_age}"
+		p:cookieControllerService-ref="cookieControllerService"
+		p:qqUserInfoService-ref="qqUserInfoService"
+		p:qqConfiguration-ref="qqConfiguration"
+		scope="prototype"/>
+		
+	<bean id="generatorCASTicketAction" class="com.koudai.udc.action.GeneratorCASTicketAction"
+		p:centralAuthenticationService-ref="myCentralAuthenticationService"
+		scope="prototype"/>
+		
+	<bean id="loginSuccessAction" class="com.koudai.udc.action.LoginSuccessAction" 
+		p:targetUrl="${server_https_prefix}"
+		scope="prototype"/>
+		
+	<bean id="myCentralAuthenticationService" class="org.jasig.cas.CentralAuthenticationServiceImpl"
+		p:ticketGrantingTicketExpirationPolicy-ref="grantingTicketExpirationPolicy"
+		p:serviceTicketExpirationPolicy-ref="serviceTicketExpirationPolicy"
+		p:authenticationManager-ref="myAuthenticationManager"
+		p:ticketGrantingTicketUniqueTicketIdGenerator-ref="ticketGrantingTicketUniqueIdGenerator"
+		p:ticketRegistry-ref="ticketRegistry"
+        p:servicesManager-ref="servicesManager"
+        p:persistentIdGenerator-ref="persistentIdGenerator">
+		<property name="uniqueTicketIdGeneratorsForService">
+			<map>
+				<entry
+					key="org.jasig.cas.authentication.principal.SimpleWebApplicationServiceImpl"
+					value-ref="serviceTicketUniqueIdGenerator" />
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="myAuthenticationManager" class="org.jasig.cas.authentication.AuthenticationManagerImpl">
+		<property name="credentialsToPrincipalResolvers">
+			<list>
+				<bean class="com.koudai.udc.service.MyUsernamePasswordCredentialsToPrincipalResolver" />
+				<bean class="org.jasig.cas.authentication.principal.HttpBasedServiceCredentialsToPrincipalResolver" />
+			</list>
+		</property>
+
+		<property name="authenticationHandlers">
+			<list>
+				<bean class="org.jasig.cas.authentication.handler.support.HttpBasedServiceCredentialsAuthenticationHandler" p:httpClient-ref="httpClient" />
+				<bean class="com.koudai.udc.service.impl.MyDatabaseAuthenticationHandler"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="bindTaobaoController" class="com.koudai.udc.controller.BindTaobaoController" scope="prototype">
+		<property name="taobaoConfiguration">
+			<ref bean="taobaoConfiguration" />
+		</property>
+		<property name="errorView" value="mobileError" />
+	</bean>
+	
+	<bean id="processBindTaobaoResponseController" class="com.koudai.udc.controller.ProcessBindTaobaoResponseController" scope="prototype">
+		<property name="taobaoConfiguration">
+			<ref bean="taobaoConfiguration" />
+		</property>
+		<property name="errorView" value="mobileError" />
+	</bean>
+
+</beans>

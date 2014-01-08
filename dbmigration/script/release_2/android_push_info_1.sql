@@ -1,0 +1,1 @@
+AlTER TABLE android_push_info ADD index(createTime, machineID(60));

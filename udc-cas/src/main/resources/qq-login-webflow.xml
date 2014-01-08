@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+                          
+    <on-start>
+        <evaluate expression="initialFlowSetupAction" />
+    </on-start>
+    
+	<decision-state id="ticketGrantingTicketExistsCheck">
+		<if test="flowScope.ticketGrantingTicketId neq null" then="qqGenerateServiceTicket" else="getQQCode" />
+	</decision-state>
+	
+	<action-state id="qqGenerateServiceTicket">
+		<evaluate expression="myGenerateServiceTicketAction" />
+		<transition on="success" to ="lastRedirect" />
+		<transition on="error" to="errorForm" />
+		<transition on="indexPage" to="indexPageForm" /> 
+		<transition on="haslogin" to="generateTicket" />
+	</action-state>
+	
+	<action-state id="lastRedirect">
+	  <evaluate expression="lastRedirectFormAction" />
+	  <transition on="success" to="lastRedirectForm" />
+	</action-state>
+	
+	<action-state id="getQQCode">
+	    <evaluate expression="getQQCodeAction" />
+		<transition on="success" to="getQQCodeForm" />
+		<transition on="haslogin" to="generateTicket" />
+	</action-state>  
+	
+	<action-state id="generateTicket">
+		<evaluate expression="generatorCASTicketAction" />
+		<transition on="success" to="sendTicketGrantingTicket"></transition>
+		<transition on="error" to="viewServiceErrorView"></transition>
+	</action-state>
+	
+	<action-state id="sendTicketGrantingTicket">
+		<evaluate expression="sendTicketGrantingTicketAction" />
+		<transition on="success" to="serviceCheck" />
+	</action-state>
+	
+	<decision-state id="serviceCheck">
+		<if test="flowScope.service != null" then="generateServiceTicket" else="viewGenericLoginSuccess" />
+	</decision-state>
+	
+	<action-state id="generateServiceTicket">
+		<evaluate expression="generateServiceTicketAction" />
+		<transition on="success" to ="warn" />
+		<transition on="error" to="viewLoginForm" />
+		<transition on="gateway" to="lastRedirect" />
+	</action-state>
+	
+	<decision-state id="warn">
+		<if test="flowScope.warnCookieValue" then="showWarningView" else="lastRedirect" />
+	</decision-state>
+	
+	<end-state id="viewGenericLoginSuccess" view="casLoginGenericSuccessView" />
+	
+	<end-state id="showWarningView" view="casLoginConfirmView" />
+	
+	<end-state id="viewServiceErrorView" view="viewServiceErrorForQQView" />
+	
+	<view-state id="lastRedirectForm" view="lastRedirectView"/>
+	<view-state id="errorForm" view="viewServiceErrorForQQView"/>
+	<view-state id="logoutQQUserForm" view="logoutQQUserView"/>
+	<view-state id="getQQCodeForm" view="getQQCodeView"/>
+	<view-state id="indexPageForm" view="indexPageView"/>
+	
+	<global-transitions>
+		<transition to="viewServiceErrorForQQView" on-exception="org.springframework.webflow.execution.repository.NoSuchFlowExecutionException" />
+		<transition to="viewServiceSsoErrorView" on-exception="org.jasig.cas.services.UnauthorizedSsoServiceException" />
+		<transition to="viewServiceErrorForQQView" on-exception="org.jasig.cas.services.UnauthorizedServiceException" />
+	</global-transitions>
+	
+</flow>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="sessionFactoryW" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSourceW" />
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/koudai/udc/domain/UserBasicInfo.hbm.xml</value>
+				<value>com/koudai/udc/domain/BindingInfo.hbm.xml</value>
+				<value>com/koudai/udc/domain/ProductCollect.hbm.xml</value>
+				<value>com/koudai/udc/domain/ShopFavorite.hbm.xml</value>
+				<value>com/koudai/udc/domain/DeviceInfo.hbm.xml</value>
+				<value>com/koudai/udc/domain/ProductCollectTop.hbm.xml</value>
+				<value>com/koudai/udc/domain/ShopFavoriteTop.hbm.xml</value>
+				<value>com/koudai/udc/domain/ProductCollectBijia.hbm.xml</value>
+				<value>com/koudai/udc/domain/PriceRemind.hbm.xml</value>
+				<value>com/koudai/udc/domain/PriceRemindAnonymous.hbm.xml</value>
+				<value>com/koudai/udc/domain/MachineSequence.hbm.xml</value>
+				<value>com/koudai/udc/domain/IosPush.hbm.xml</value>
+				<value>com/koudai/udc/domain/ProductCollectedCount.hbm.xml</value>
+				<value>com/koudai/udc/domain/ShopFavoritedCount.hbm.xml</value>
+				<value>com/koudai/udc/domain/UserTaobaoInfo.hbm.xml</value>
+				<value>com/koudai/udc/domain/ProductPush.hbm.xml</value>
+				<value>com/koudai/udc/domain/IosPushInfo.hbm.xml</value>
+				<value>com/koudai/udc/domain/AndroidPushInfo.hbm.xml</value>
+				<value>com/koudai/udc/domain/ProductCollectWeekTop.hbm.xml</value>
+				<value>com/koudai/udc/domain/UserActivation.hbm.xml</value>
+				<value>com/koudai/udc/domain/UserTestInfo.hbm.xml</value>
+				<value>com/koudai/udc/domain/UserSinaInfo.hbm.xml</value>
+				<value>com/koudai/udc/domain/UserQQInfo.hbm.xml</value>
+				<value>com/koudai/udc/domain/PurchaseRecord.hbm.xml</value>
+				<value>com/koudai/udc/domain/ProductCollectTaobao.hbm.xml</value>
+				<value>com/koudai/udc/domain/ShopFavoriteTaobao.hbm.xml</value>
+				<value>com/koudai/udc/domain/UserAlgorithmInfo.hbm.xml</value>
+				<value>com/koudai/udc/domain/TaobaoBindingInfo.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</prop>
+				<prop key="hibernate.query.substitutions">true 1, false 0</prop>
+				<prop key="hibernate.show_sql">false</prop>
+			</props>
+		</property>
+		<property name="eventListeners">
+			<map>
+				<entry key="post-load">
+					<!-- This hibernate interceptor allows us to use Spring to inject services into Hibernate managed domain objects -->
+					<bean class="com.koudai.udc.domain.interceptor.SpringHibernateInjector" />
+				</entry>
+			</map>
+		</property>
+		<property name="lobHandler">
+			<ref local="lobHandler" />
+		</property>
+	</bean>
+
+	<bean id="lobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler" lazy-init="true" />
+	
+  	<bean name="passwordEncoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"/>
+
+	<!-- Transaction manager for a single Hibernate SessionFactory (alternative to JTA) -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+	
+	<bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+		<property name="transactionManager">
+			<ref local="transactionManager" />
+		</property>
+	</bean>
+		
+	<bean id="userBasicInfoDAOW" class="com.koudai.udc.persistence.UserBasicInfoDAOHibernate">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+	
+	<bean id="bindingInfoDAOW" class="com.koudai.udc.persistence.BindingInfoDAOHibernate">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+	
+	<bean id="productCollectDAOW" class="com.koudai.udc.persistence.ProductCollectDAOHibernate">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+	
+	<bean id="shopFavoriteDAOW" class="com.koudai.udc.persistence.ShopFavoriteDAOHibernate">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+	
+	<bean id="deviceInfoDAOW" class="com.koudai.udc.persistence.DeviceInfoDAOHibernate">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+	
+	<bean id="productCollectTopDAOW" class="com.koudai.udc.persistence.ProductCollectTopDAOHibernate">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+	
+	<bean id="shopFavoriteTopDAOW" class="com.koudai.udc.persistence.ShopFavoriteTopDAOHibernate">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+	
+	<bean id="productCollectBijiaDAOW" class="com.koudai.udc.persistence.ProductCollectBijiaDAOHibernate">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+	
+	<bean id="priceRemindDAOW" class="com.koudai.udc.persistence.PriceRemindDAOHibernate">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+	
+	<bean id="priceRemindAnonymousDAOW" class="com.koudai.udc.persistence.PriceRemindAnonymousDAOHibernate">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+	
+	<bean id="machineSequenceDAOW" class="com.koudai.udc.persistence.MachineSequenceDAOHibernate">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+	
+	<bean id="iosPushDAOW" class="com.koudai.udc.persistence.IosPushDAOHibernate">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+	
+	<bean id="productCollectedCountDAOW" class="com.koudai.udc.persistence.ProductCollectedCountDAOHibernate">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+	
+	<bean id="shopFavoritedCountDAOW" class="com.koudai.udc.persistence.ShopFavoritedCountDAOHibernate">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+	
+	<bean id="productPushDAOW" class="com.koudai.udc.persistence.ProductPushDAOHibernate">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+	
+	<bean id="iosPushInfoDAOW" class="com.koudai.udc.persistence.IosPushInfoDAOHibernate">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+	
+	<bean id="androidPushInfoDAOW" class="com.koudai.udc.persistence.AndroidPushInfoDAOHibernate">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+		
+	<bean id="productCollectWeekTopDAOW" class="com.koudai.udc.persistence.ProductCollectWeekTopDAOHibernate">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+	
+	<bean id="userActivationDAOW" class="com.koudai.udc.persistence.UserActivationDAOHibernate">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+	
+	<bean id="userTestInfoDAOW" class="com.koudai.udc.persistence.UserTestInfoDAOHibernate">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+	
+	<bean id="userTaobaoInfoDAOW" class="com.koudai.udc.persistence.UserTaobaoInfoDAOHibernate">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+	
+	<bean id="userSinaInfoDAOW" class="com.koudai.udc.persistence.UserSinaInfoDAOHibernate">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+	
+	<bean id="userQQInfoDAOW" class="com.koudai.udc.persistence.UserQQInfoDAOHibernate">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+	
+	<bean id="purchaseRecordDAOW" class="com.koudai.udc.persistence.PurchaseRecordDAOHibernate">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+	
+	<bean id="productCollectTaobaoDAOW" class="com.koudai.udc.persistence.ProductCollectTaobaoDAOHibernate">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+	
+	<bean id="shopFavoriteTaobaoDAOW" class="com.koudai.udc.persistence.ShopFavoriteTaobaoDAOHibernate">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+	
+	<bean id="userAlgorithmInfoDAOW" class="com.koudai.udc.persistence.UserAlgorithmInfoDAOHibernate">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+		
+	<bean id="taobaoBindingInfoDAOW" class="com.koudai.udc.persistence.TaobaoBindingInfoDAOHibernate">
+		<property name="sessionFactory">
+			<ref local="sessionFactoryW" />
+		</property>
+	</bean>
+	
+</beans>

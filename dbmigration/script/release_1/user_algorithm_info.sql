@@ -1,0 +1,1 @@
+create table user_rec_algorithm_info(id BIGINT(13) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,userID varchar(320) NOT NULL,algorithmVersion tinyint UNSIGNED NOT NULL,sessionVersion varchar(32),userStyle varchar(320),updateTime datetime NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;

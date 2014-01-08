@@ -1,0 +1,1 @@
+ALTER TABLE product_collect ADD index idx_pc_collectTime(collectTime);

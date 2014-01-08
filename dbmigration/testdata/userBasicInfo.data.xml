@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.6"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="@data_path@dbchangelog-1.6.xsd"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.6 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.6.xsd">
+
+	<preConditions>
+		<dbms type="mysql" />
+	</preConditions>
+	
+	<changeSet id="1" author="sh">
+		<insert tableName="user_basic_info">
+			<column name="id" valueNumeric="1" />
+			<column name="email" value="b@b.com" />
+			<column name="thirdID" value="@taobao:456" />
+			<column name="phoneNumber" value="1312222222" />
+			<column name="koudaiID" value="1" />
+			<column name="name" value="456" />
+			<column name="machineID" value="10:9A:DD:64:F6:A1" />
+			<column name="passwd" value="e10adc3949ba59abbe56e057f20f883e" />
+			<column name="gender" valueNumeric="1"/>
+			<column name="birthday" value="2011-01-01 00:00:00" />
+			<column name="location" value="" />
+			<column name="registTime" value="2011-01-01 00:00:00" />
+			<column name="qq" value="123456" />
+			<column name="msn" value="a@a.com" />
+			<column name="introduction" value="" />
+			<column name="lastLoginTime" value="2011-01-01 00:00:00" />
+			<column name="enabled" valueNumeric="1"/>
+		</insert>
+	</changeSet>
+
+</databaseChangeLog>

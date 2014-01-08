@@ -1,0 +1,1 @@
+ALTER TABLE price_remind ADD index(userID(30));

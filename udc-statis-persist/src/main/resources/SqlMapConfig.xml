@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMapConfig      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+
+	<settings cacheModelsEnabled="false" enhancementEnabled="true"
+		lazyLoadingEnabled="true" useStatementNamespaces="true" maxRequests="256"
+		maxSessions="64" maxTransactions="16" />
+
+	<sqlMap resource="com/koudai/udc/statis/domain/ProductRecommend.xml" />
+	<sqlMap resource="com/koudai/udc/statis/domain/ProductStatis.xml" />
+	<sqlMap resource="com/koudai/udc/statis/domain/ProductStatisPeriod.xml" />
+	<sqlMap resource="com/koudai/udc/statis/domain/ProductType.xml" />
+	<sqlMap resource="com/koudai/udc/statis/domain/TypeInfo.xml" />
+
+</sqlMapConfig>

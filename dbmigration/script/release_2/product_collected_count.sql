@@ -1,0 +1,1 @@
+ALTER TABLE product_collected_count ADD UNIQUE(productID(30));

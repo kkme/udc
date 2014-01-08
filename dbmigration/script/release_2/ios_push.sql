@@ -1,0 +1,1 @@
+ALTER TABLE ios_push ADD UNIQUE(uuid);

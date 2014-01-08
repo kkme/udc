@@ -1,0 +1,1 @@
+create table product_statis_period(id BIGINT(12) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,productID varchar(1024),clickedNum int not NULL,collectedNum int not NULL,mayPurchasedNum int not NULL,statTime datetime not NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;

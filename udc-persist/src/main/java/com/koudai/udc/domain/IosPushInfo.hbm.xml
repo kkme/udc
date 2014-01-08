@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.koudai.udc.domain">
+	<class name="IosPushInfo" table="ios_push_info">
+		<id column="ID" name="id" type="long">
+			<generator class="identity" />
+		</id>
+		<property name="machineId" column="machineID" not-null="true" type="string" />
+		<property name="firstProductName" column="firstProductName" not-null="true" type="string" />
+		<property name="productIds" column="productIds" not-null="true" type="string" />
+		<property name="infoType" column="infoType" not-null="true" type="int" />
+		<property name="token" column="token" not-null="true" type="string" />
+		<property name="state" column="state" not-null="true" type="int" />
+		<property column="platform" length="64" name="platform" not-null="true" type="com.koudai.udc.domain.PlatformUserType" />
+		<property name="createTime" column="createTime" not-null="true" type="timestamp" />
+		
+		<property name="userId" column="userID" not-null="false" type="string" />
+		<property name="startTime" column="startTime" not-null="false" type="timestamp" />
+		<property name="endTime" column="endTime" not-null="false" type="timestamp" />
+		<property name="pushTime" column="pushTime" not-null="false" type="timestamp" />
+	</class>
+</hibernate-mapping>

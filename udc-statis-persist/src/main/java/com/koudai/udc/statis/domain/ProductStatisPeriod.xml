@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="ProductStatisPeriod">
+
+	<typeAlias alias="productStatisPeriod" type="com.koudai.udc.statis.domain.ProductStatisPeriod" />
+
+	<typeAlias alias="productLimit" type="com.koudai.udc.statis.dao.impl.ProductLimit" />
+
+	<insert id="save" parameterClass="productStatisPeriod">
+		insert into product_statis_period (id,productID,clickedNum,collectedNum,mayPurchasedNum,statTime)
+		values (#id#,#productId#,#clickedNum#,#collectedNum#,#purchasedNum#,#statTime#)
+		<selectKey keyProperty="id" resultClass="long">
+			SELECT LAST_INSERT_ID() AS ID
+		</selectKey>
+	</insert>
+	
+	<select id="getProductStatisPeriodsByProductIdAndStartAndEndTime" parameterClass="productLimit" resultClass="productStatisPeriod">
+		select id as id,productID as productId,clickedNum as clickedNum,collectedNum as collectedNum,mayPurchasedNum as purchasedNum
+		from product_statis_period
+		<dynamic prepend="where">
+			<isNotNull prepend="and" property="productId">
+				productID = #productId#
+			</isNotNull>
+			<isNotNull prepend="and" property="startTime">
+				<![CDATA[
+					statTime >= convert(#startTime#, datetime)
+				]]> 
+			</isNotNull>
+			<isNotNull prepend="and" property="endTime">
+				<![CDATA[
+					statTime <= convert(#endTime#, datetime)
+				]]> 
+			</isNotNull>
+		</dynamic>
+	</select>
+
+</sqlMap>

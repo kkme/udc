@@ -1,0 +1,105 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+            margin: 0;
+            padding: 0;
+        }
+        ul,ol{list-style: none;}
+        a{
+            text-decoration: none;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        body{
+            font: 13px/1.5 Tahoma, arial, "宋体";
+            color: #666;
+        }
+
+        #header{
+            height: 93px;
+            background: url(../images/header_bg.png) repeat-x;
+        }
+            .brand{
+                margin-left: 41px;
+                width: 186px;
+                height: 93px;
+                background: url(../images/logo.png) no-repeat;
+                text-indent: -9999px;
+            }
+
+        .main{
+            
+        }
+            .main table{
+                width: 100%;
+
+            }
+                .main table td{
+                    vertical-align: middle;
+                    text-align: center;
+                }
+        #footer{
+            padding-top: 28px;
+            height: 65px;
+            line-height: 25px;
+            text-align: center;
+            border-top: 1px solid #e4e4e4;
+            background: #f4f4f4;
+
+        }
+        #footer a{
+            color: #FF6C00;
+        }
+
+
+        .link-hl{
+            color: #ff7f3f;
+        }
+
+        .login{
+            background: url(../images/bg.jpg) no-repeat;
+            width:342px;
+            height: 282px;
+            margin:auto;
+            position: relative;
+        }
+
+        .btn_taobao{
+            margin: auto;
+            width:149px;
+            margin-top:100px;
+        }
+
+        .btn_qq,.btn_sina{
+            position: absolute;
+            bottom:30px;
+            right:37px;
+        }
+
+        .btn_sina{
+            left:38px;
+        }
+
+        img{
+            border:0px;
+        }
+        
+        .links{
+            height: 30px;
+            text-align: center;
+        }
+        .link{
+            display: inline-block;
+            line-height: 30px;
+            padding-left: 20px;
+        }
+        #gouwu{
+            color: #ff6c0a;
+            background: url(../images/ico_gouwu.png) no-repeat 0 50%;
+        }
+        #bijia{
+            margin-left: 20px;
+            color: #1498da;
+            background: url(../images/ico_bijia.png) no-repeat 0 50%;
+        }

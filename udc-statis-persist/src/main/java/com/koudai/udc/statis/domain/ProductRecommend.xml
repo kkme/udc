@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="ProductRecommend">
+
+	<typeAlias alias="productRecommend" type="com.koudai.udc.statis.domain.ProductRecommend" />
+
+	<typeAlias alias="positionLimit" type="com.koudai.udc.statis.dao.impl.PositionLimit" />
+
+	<typeAlias alias="totalLimit" type="com.koudai.udc.statis.dao.impl.TotalLimit" />
+	
+	<typeAlias alias="pageLimit" type="com.koudai.udc.statis.dao.impl.PageLimit" />
+	
+	<insert id="save" parameterClass="productRecommend">
+		insert into editor_recommend_product (id,userID,productID,pushTime)
+		values (#id#,#userId#,#productId#,#pushTime#)
+		<selectKey keyProperty="id" resultClass="long">
+			SELECT LAST_INSERT_ID() AS ID
+		</selectKey>
+	</insert>
+	
+	<select id="getProductRecommendByProductId" parameterClass="String" resultClass="productRecommend">
+		select id as id,userID as userId,productID as productId,pushTime as pushTime
+		from editor_recommend_product
+		where productID = #productId#
+	</select>
+	
+	<update id="updatePushTimeByProductId" parameterClass="productRecommend">
+		update editor_recommend_product set pushTime=#pushTime#      
+	    where productID = #productId# 
+	</update>
+	
+	<select id="getCount" resultClass="Integer">
+		select count(*) from editor_recommend_product
+	</select>
+	
+	<select id="getCountByUserIdAndStartAndEndTime" parameterClass="totalLimit" resultClass="Integer">
+		select count(*) from editor_recommend_product
+		<dynamic prepend="where">
+			<isNotNull prepend="and" property="userId">
+				userID = #userId#
+			</isNotNull>
+			<isNotNull prepend="and" property="startTime">
+				<![CDATA[
+					pushTime >= convert(#startTime#, datetime)
+				]]> 
+			</isNotNull>
+			<isNotNull prepend="and" property="endTime">
+				<![CDATA[
+					pushTime <= convert(#endTime#, datetime)
+				]]> 
+			</isNotNull>
+		</dynamic>
+	</select>
+	
+	<select id="getProductRecommendsByStartPosAndMaxNum" parameterClass="positionLimit" resultClass="String">
+		select productID from editor_recommend_product order by id asc
+		limit #startPos#,#maxNum#
+	</select>
+	
+	<select id="getProductRecommendsByUserIdAndStartAndEndTime" parameterClass="totalLimit" resultClass="productRecommend">
+		select * from editor_recommend_product
+		<dynamic prepend="where">
+			<isNotNull prepend="and" property="userId">
+				userID = #userId#
+			</isNotNull>
+			<isNotNull prepend="and" property="startTime">
+				<![CDATA[
+					pushTime >= convert(#startTime#, datetime)
+				]]> 
+			</isNotNull>
+			<isNotNull prepend="and" property="endTime">
+				<![CDATA[
+					pushTime <= convert(#endTime#, datetime)
+				]]> 
+			</isNotNull>
+		</dynamic>
+	</select>
+	
+	<select id="getLimitProductRecommendsByUserIdAndStartAndEndTime" parameterClass="pageLimit" resultClass="productRecommend">
+		select * from editor_recommend_product
+		<dynamic prepend="where">
+			<isNotNull prepend="and" property="userId">
+				userID = #userId#
+			</isNotNull>
+			<isNotNull prepend="and" property="startTime">
+				<![CDATA[
+					pushTime >= convert(#startTime#, datetime)
+				]]> 
+			</isNotNull>
+			<isNotNull prepend="and" property="endTime">
+				<![CDATA[
+					pushTime <= convert(#endTime#, datetime)
+				]]> 
+			</isNotNull>
+			order by pushTime desc,id desc limit #startPos#,#maxNum#
+		</dynamic>
+	</select>
+	
+</sqlMap>

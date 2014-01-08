@@ -1,0 +1,75 @@
+<project name="udc-dbmigration" basedir="." default="rebuild.schema.and.refresh.data">
+	<property name="lib.dir" value="${basedir}/lib" />
+	<property name="script.dir" value="${basedir}/script" />
+	<property name="testdata.dir" value="${basedir}/testdata" />
+	<property name="config.dir" value="${basedir}/config" />
+	<property name="build.dir" value="${basedir}/build" />
+	<property file="${config.dir}/datasource.properties" />
+
+	<path id="classpath">
+		<fileset dir="${lib.dir}">
+			<filename name="*.jar" />
+		</fileset>
+	</path>
+
+	<taskdef resource="liquibasetasks.properties">
+		<classpath refid="classpath" />
+	</taskdef>
+
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+		<classpath refid="classpath" />
+	</taskdef>
+
+	<macrodef name="excuteScript">
+		<attribute name="dir" />
+		<!-- dropFirst do not work with schema -->
+		<attribute name="dropFirst" default="false" />
+		<sequential>
+			<migrateDatabase defaultSchemaName="${database.name}" changeLogFile="@{dir}/script_suite.xml" driver="${database.driver}" url="${database.url}" username="${database.username}" password="${database.password}" dropFirst="@{dropFirst}" classpathref="classpath" />
+		</sequential>
+	</macrodef>
+
+	<target name="-copy.schema.and.testdata.resource">
+		<delete dir="${build.dir}" failonerror="true" />
+		<mkdir dir="${build.dir}/script" />
+		<mkdir dir="${build.dir}/testdata" />
+		<filter token="data_path" value="${basedir}/" />
+		<copy todir="${build.dir}/script" filtering="true" encoding="UTF-8" outputencoding="UTF-8" overwrite="true">
+			<fileset dir="${script.dir}" />
+		</copy>
+		<copy todir="${build.dir}/testdata" filtering="true" encoding="UTF-8" outputencoding="UTF-8" overwrite="true">
+			<fileset dir="${testdata.dir}" />
+		</copy>
+	</target>
+
+	<target name="-rebuild.schema">
+		<echo message="${database.driver}" />
+		<echo message="${database.url}" />
+		<echo message="username: ${database.username}" />
+		<echo message="password: ${database.password}" />
+		<sql driver="${database.driver}" url="${database.url}" userid="${database.supername}" password="${database.superpassword}" classpathref="classpath" encoding="UTF-8">
+			<fileset dir="${build.dir}/script" casesensitive="false">
+				<include name="createSchema.sql" />
+			</fileset>
+		</sql>
+		<excuteScript dir="${build.dir}/script/release_1" dropfirst="false" />
+		<excuteScript dir="${build.dir}/script/release_2" dropfirst="false" />
+		<excuteScript dir="${build.dir}/script/release_3" dropfirst="false" />
+		<excuteScript dir="${build.dir}/script/release_4" dropfirst="false" />
+	</target>
+
+	<target name="-refresh.test.data">
+		<excuteScript dir="${build.dir}/testdata" />
+	</target>
+
+	<target name="-upgrade.product.schema">
+		<excuteScript dir="${build.dir}/script/release_1" dropfirst="false" />
+		<excuteScript dir="${build.dir}/script/release_2" dropfirst="false" />
+		<excuteScript dir="${build.dir}/script/release_3" dropfirst="false" />
+		<excuteScript dir="${build.dir}/script/release_4" dropfirst="false" />
+	</target>
+	
+	<target name="--rebuild.schema.and.refresh.data" depends="-copy.schema.and.testdata.resource,-rebuild.schema,-refresh.test.data" />
+	<target name="rebuild.schema.and.refresh.data" depends="--rebuild.schema.and.refresh.data" description="rebuild.schema.and.refresh.data" />
+	<target name="upgrade.product.schema" depends="-copy.schema.and.testdata.resource,-upgrade.product.schema" description="upgrade.schema" />
+</project>

@@ -1,0 +1,1 @@
+create table taobao_binding_info(id BIGINT(13) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,userID varchar(320) NOT NULL,bindID varchar(320) NOT NULL,bound boolean NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;

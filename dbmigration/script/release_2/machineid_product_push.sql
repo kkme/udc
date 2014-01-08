@@ -1,0 +1,1 @@
+AlTER TABLE machineid_product_push ADD UNIQUE(machineID(60), productID(40));

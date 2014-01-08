@@ -1,0 +1,1 @@
+ALTER TABLE user_rec_algorithm_info ADD UNIQUE(userID(50));

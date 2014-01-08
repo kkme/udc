@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>udc-parent</artifactId>
+		<groupId>com.koudai.udc</groupId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>udc-bo</artifactId>
+	<packaging>war</packaging>
+	<name>udc-bo</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.koudai.udc</groupId>
+			<artifactId>udc-statis-persist</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.4</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sourceforge.javacsv</groupId>
+			<artifactId>javacsv</artifactId>
+			<version>2.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>quartz</groupId>
+			<artifactId>quartz</artifactId>
+			<version>1.5.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.1.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>2.4</version>
+			<classifier>jdk15</classifier>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>udcBo</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<version>${jetty.plugin.version}</version>
+				<configuration>
+					<stopPort>6505</stopPort>
+					<stopKey>foo1</stopKey>
+					<connectors>
+						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+							<port>${udc.bo.port}</port>
+							<maxIdleTime>60000</maxIdleTime>
+						</connector>
+					</connectors>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+		<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<report.dir>/Users/linshaohua/udcanalyze/report/</report.dir>
+				<shell.result.dir>/Users/linshaohua/udcanalyze/shellresult/</shell.result.dir>
+				<code.result.dir>/Users/linshaohua/udcanalyze/coderesult/</code.result.dir>
+				<data.source.dir>/Users/linshaohua/udcanalyze/datasource/</data.source.dir>
+				<upload.top.url>http://localhost:5501/udc-api/uploadProductCollectTop.do</upload.top.url>
+				<query.type.url>http://125.39.222.112:9003/getItemDefaultCombineApp.do</query.type.url>
+				<upload.top3.url>http://localhost:5501/udc-api/uploadProductCollectTop.do</upload.top3.url>
+				<app.top.check.url>http://apitest.koudai.com:9009/dailyTopItemsDefaultCollect.do</app.top.check.url>
+			</properties>
+		</profile>
+		<profile>
+			<id>pro</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<report.dir>/data/udcanalyze/report/</report.dir>
+				<shell.result.dir>/data/udcanalyze/shellresult/</shell.result.dir>
+				<code.result.dir>/data/udcanalyze/coderesult/</code.result.dir>
+				<data.source.dir>/data/udcanalyze/datasource/</data.source.dir>
+				<upload.top.url>http://udcapi.koudai.com/uploadProductCollectTop.do</upload.top.url>
+				<query.type.url>http://10.2.8.211/getItemDefaultCombineApp.do</query.type.url>
+				<upload.top30.url>http://udcapi.koudai.com/uploadProductCollectWeekTop.do</upload.top30.url>
+				<app.top.check.url>http://10.2.8.210/dailyTopItemsDefaultCollect.do</app.top.check.url>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>2.8.1</version>
+						<configuration>
+							<skipTests>true</skipTests>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>

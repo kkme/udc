@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="productRecommendFactory" class="com.koudai.udc.statis.factory.impl.SimpleProductRecommendFactory"/>
+
+	<bean id="productStatisFactory" class="com.koudai.udc.statis.factory.impl.SimpleProductStatisFactory"/>
+
+	<bean id="productStatisPeriodFactory" class="com.koudai.udc.statis.factory.impl.SimpleProductStatisPeriodFactory"/>
+
+	<bean id="productTypeFactory" class="com.koudai.udc.statis.factory.impl.SimpleProductTypeFactory"/>
+
+	<bean id="typeInfoFactory" class="com.koudai.udc.statis.factory.impl.SimpleTypeInfoFactory"/>
+
+</beans>

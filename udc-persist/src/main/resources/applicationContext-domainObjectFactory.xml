@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="userBasicInfoFactory" class="com.koudai.udc.domain.factory.SimpleUserBasicInfoFactory" />
+	
+	<bean id="bindingInfoFactory" class="com.koudai.udc.domain.factory.SimpleBindingInfoFactory" />
+	
+	<bean id="productCollectFactory" class="com.koudai.udc.domain.factory.SimpleProductCollectFactory" />
+	
+	<bean id="shopFavoriteFactory" class="com.koudai.udc.domain.factory.SimpleShopFavoriteFactory" />
+
+	<bean id="deviceInfoFactory" class="com.koudai.udc.domain.factory.SimpleDeviceInfoFactory" />
+
+	<bean id="productCollectTopFactory" class="com.koudai.udc.domain.factory.SimpleProductCollectTopFactory" />
+
+	<bean id="shopFavoriteTopFactory" class="com.koudai.udc.domain.factory.SimpleShopFavoriteTopFactory" />
+	
+	<bean id="productCollectBijiaFactory" class="com.koudai.udc.domain.factory.SimpleProductCollectBijiaFactory" />
+	
+	<bean id="priceRemindFactory" class="com.koudai.udc.domain.factory.SimplePriceRemindFactory" />
+
+	<bean id="priceRemindAnonymousFactory" class="com.koudai.udc.domain.factory.SimplePriceRemindAnonymousFactory" />
+
+	<bean id="machineSequenceFactory" class="com.koudai.udc.domain.factory.SimpleMachineSequenceFactory" />
+
+	<bean id="iosPushFactory" class="com.koudai.udc.domain.factory.SimpleIosPushFactory" />
+
+	<bean id="productCollectedCountFactory" class="com.koudai.udc.domain.factory.SimpleProductCollectedCountFactory" />
+
+	<bean id="shopFavoritedCountFactory" class="com.koudai.udc.domain.factory.SimpleShopFavoritedCountFactory" />
+
+	<bean id="userTaobaoInfoFactory" class="com.koudai.udc.domain.factory.SimpleUserTaobaoInfoFactory" />
+
+	<bean id="productPushFactory" class="com.koudai.udc.domain.factory.SimpleProductPushFactory" />
+
+	<bean id="iosPushInfoFactory" class="com.koudai.udc.domain.factory.SimpleIosPushInfoFactory" />
+
+	<bean id="androidPushInfoFactory" class="com.koudai.udc.domain.factory.SimpleAndroidPushInfoFactory" />
+
+	<bean id="productCollectWeekTopFactory" class="com.koudai.udc.domain.factory.SimpleProductCollectWeekTopFactory" />
+	
+	<bean id="userActivationFactory" class="com.koudai.udc.domain.factory.SimpleUserActivationFactory" />
+	
+	<bean id="userTestInfoFactory" class="com.koudai.udc.domain.factory.SimpleUserTestInfoFactory" />
+	
+	<bean id="userSinaInfoFactory" class="com.koudai.udc.domain.factory.SimpleUserSinaInfoFactory" />
+	
+	<bean id="userQQInfoFactory" class="com.koudai.udc.domain.factory.SimpleUserQQInfoFactory" />
+	
+	<bean id="purchaseRecordFactory" class="com.koudai.udc.domain.factory.SimplePurchaseRecordFactory" />
+	
+	<bean id="productCollectTaobaoFactory" class="com.koudai.udc.domain.factory.SimpleProductCollectTaobaoFactory" />
+	
+	<bean id="shopFavoriteTaobaoFactory" class="com.koudai.udc.domain.factory.SimpleShopFavoriteTaobaoFactory" />
+	
+	<bean id="userAlgorithmInfoFactory" class="com.koudai.udc.domain.factory.SimpleUserAlgorithmInfoFactory" />
+	
+	<bean id="taobaoBindingInfoFactory" class="com.koudai.udc.domain.factory.SimpleTaobaoBindingInfoFactory" />
+	
+</beans>

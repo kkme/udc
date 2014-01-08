@@ -1,0 +1,1 @@
+create table type_info(id BIGINT(8) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,typeID varchar(100) NOT NULL,typeName varchar(40) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;

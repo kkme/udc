@@ -1,0 +1,1 @@
+ALTER TABLE price_remind_anonymous ADD UNIQUE(email(26), productId(30));

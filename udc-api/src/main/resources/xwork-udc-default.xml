@@ -1,0 +1,51 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.0//EN" "http://www.opensymphony.com/xwork/xwork-1.1.dtd">
+<xwork>
+
+	<!-- Include webwork defaults (from WebWork JAR). -->
+	<include file="webwork-default.xml" />
+	<package name="udc-default" extends="webwork-default">
+		<interceptors>
+			<interceptor name="absolutePath-interceptor" class="AbsolutePathInterceptor.spring" />
+			<interceptor name="pathToRoot-interceptor" class="PathToRootInterceptor.spring" />
+			<interceptor name="transaction-interceptor" class="TransactionInterceptor.spring" />
+			<interceptor name="exception-handling" class="ExceptionHandlingInterceptor.spring" />
+			
+			<interceptor-stack name="common-stack">
+				<interceptor-ref name="servlet-config" />
+				<interceptor-ref name="model-driven" />
+				<interceptor-ref name="static-params" />
+				<interceptor-ref name="params" />
+				<interceptor-ref name="prepare" />
+			</interceptor-stack>
+			<interceptor-stack name="myDefaultWebStackWithoutTransaction">
+				<interceptor-ref name="common-stack" />
+				<interceptor-ref name="exception-handling" />
+				<interceptor-ref name="absolutePath-interceptor" />
+				<interceptor-ref name="pathToRoot-interceptor" />
+				<interceptor-ref name="validation">
+					<param name="excludeMethods">doDefault,input,back,cancel,browse</param>
+				</interceptor-ref>
+				<interceptor-ref name="workflow">
+					<param name="excludeMethods">doDefault,input,back,cancel,browse</param>
+				</interceptor-ref>
+			</interceptor-stack>
+			<interceptor-stack name="myDefaultWebStack">
+				<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+				<interceptor-ref name="transaction-interceptor" />
+			</interceptor-stack>
+			<interceptor-stack name="default-chaining-interceptor-stack">
+				<interceptor-ref name="myDefaultWebStack" />
+				<interceptor-ref name="chain" />
+			</interceptor-stack>
+			<interceptor-stack name="chaining-without-transaction-interceptor-stack">
+				<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+				<interceptor-ref name="chain" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="myDefaultWebStack" />
+		<global-results>
+			<result name="systemErrorResult" type="freemarker">${pathToRoot}/WEB-INF/systemError.ftl</result>
+			<result name="error" type="freemarker">${pathToRoot}/WEB-INF/systemError.ftl</result>
+		</global-results>
+	</package>
+</xwork>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.6"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="@data_path@dbchangelog-1.6.xsd"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.6 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.6.xsd">
+
+	<preConditions>
+		<dbms type="mysql" />
+	</preConditions>
+
+	<changeSet id="1" author="sh">
+		<insert tableName="shop_favorite_top">
+			<column name="id" valueNumeric="1" />
+			<column name="shopID" value="shop1" />
+			<column name="favoritedNum" valueNumeric="1" />
+			<column name="statTime" value="2012-02-02" />
+		</insert>
+		<insert tableName="shop_favorite_top">
+			<column name="id" valueNumeric="2" />
+			<column name="shopID" value="shop2" />
+			<column name="favoritedNum" valueNumeric="2" />
+			<column name="statTime" value="2012-02-02" />
+		</insert>
+		<insert tableName="shop_favorite_top">
+			<column name="id" valueNumeric="3" />
+			<column name="shopID" value="shop3" />
+			<column name="favoritedNum" valueNumeric="3" />
+			<column name="statTime" value="2012-02-02" />
+		</insert>
+		<insert tableName="shop_favorite_top">
+			<column name="id" valueNumeric="4" />
+			<column name="shopID" value="shop4" />
+			<column name="favoritedNum" valueNumeric="4" />
+			<column name="statTime" value="2012-02-02" />
+		</insert>
+		<insert tableName="shop_favorite_top">
+			<column name="id" valueNumeric="5" />
+			<column name="shopID" value="shop5" />
+			<column name="favoritedNum" valueNumeric="5" />
+			<column name="statTime" value="2012-02-02" />
+		</insert>
+		<insert tableName="shop_favorite_top">
+			<column name="id" valueNumeric="6" />
+			<column name="shopID" value="shop6" />
+			<column name="favoritedNum" valueNumeric="6" />
+			<column name="statTime" value="2012-02-02" />
+		</insert>
+		<insert tableName="shop_favorite_top">
+			<column name="id" valueNumeric="7" />
+			<column name="shopID" value="shop7" />
+			<column name="favoritedNum" valueNumeric="7" />
+			<column name="statTime" value="2012-02-02" />
+		</insert>
+		<insert tableName="shop_favorite_top">
+			<column name="id" valueNumeric="8" />
+			<column name="shopID" value="shop8" />
+			<column name="favoritedNum" valueNumeric="8" />
+			<column name="statTime" value="2012-02-02" />
+		</insert>
+		<insert tableName="shop_favorite_top">
+			<column name="id" valueNumeric="9" />
+			<column name="shopID" value="shop9" />
+			<column name="favoritedNum" valueNumeric="9" />
+			<column name="statTime" value="2012-02-02" />
+		</insert>
+		<insert tableName="shop_favorite_top">
+			<column name="id" valueNumeric="10" />
+			<column name="shopID" value="shop10" />
+			<column name="favoritedNum" valueNumeric="10" />
+			<column name="statTime" value="2012-02-02" />
+		</insert>
+	</changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,1 @@
+ALTER TABLE user_test_info ADD index UID_QID_IDX(userID(50),questionID);

@@ -1,0 +1,1 @@
+ALTER TABLE machineid_sequenceid ADD UNIQUE(machineID);

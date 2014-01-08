@@ -1,0 +1,1 @@
+ALTER TABLE price_remind ADD UNIQUE(userID(50), productId(30));

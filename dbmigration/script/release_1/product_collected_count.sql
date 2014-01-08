@@ -1,0 +1,1 @@
+create table product_collected_count(id BIGINT(12) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,productID varchar(1024) NOT NULL,collectedCount integer NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;

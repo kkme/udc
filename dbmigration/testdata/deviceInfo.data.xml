@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.6"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="@data_path@dbchangelog-1.6.xsd"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.6 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.6.xsd">
+
+	<preConditions>
+		<dbms type="mysql" />
+	</preConditions>
+
+	<changeSet id="1" author="sh">
+		<insert tableName="device_info">
+			<column name="id" valueNumeric="1" />
+			<column name="machineID" value="machine1" />
+			<column name="macID" value="mac1" />
+			<column name="token" value="token1" />
+			<column name="companyName" value="" />
+			<column name="machineName" value="" />
+			<column name="terminalUA" value="" />
+			<column name="screenRes" value="" />
+			<column name="IMEI" value="" />
+			<column name="IMSI" value="" />
+			<column name="UDID" value="" />
+			<column name="PhoneNumber" value="" />
+			<column name="Platform" value="iphone" />
+			<column name="firewareVersion" value="" />
+			<column name="softwareVersion" value="" />
+			<column name="softwareBuild" value="" />
+		</insert>
+		<insert tableName="device_info">
+			<column name="id" valueNumeric="2" />
+			<column name="machineID" value="machine2" />
+			<column name="macID" value="mac2" />
+			<column name="token" value="token2" />
+			<column name="companyName" value="" />
+			<column name="machineName" value="" />
+			<column name="terminalUA" value="" />
+			<column name="screenRes" value="" />
+			<column name="IMEI" value="" />
+			<column name="IMSI" value="" />
+			<column name="UDID" value="" />
+			<column name="PhoneNumber" value="" />
+			<column name="Platform" value="iphone" />
+			<column name="firewareVersion" value="" />
+			<column name="softwareVersion" value="1.3.2" />
+			<column name="softwareBuild" value="" />
+		</insert>
+		<insert tableName="device_info">
+			<column name="id" valueNumeric="3" />
+			<column name="machineID" value="machine3" />
+			<column name="macID" value="mac3" />
+			<column name="token" value="token3" />
+			<column name="companyName" value="" />
+			<column name="machineName" value="" />
+			<column name="terminalUA" value="" />
+			<column name="screenRes" value="" />
+			<column name="IMEI" value="" />
+			<column name="IMSI" value="" />
+			<column name="UDID" value="" />
+			<column name="PhoneNumber" value="" />
+			<column name="Platform" value="iphone" />
+			<column name="firewareVersion" value="" />
+			<column name="softwareVersion" value="2.0.2" />
+			<column name="softwareBuild" value="" />
+		</insert>
+		<insert tableName="device_info">
+			<column name="id" valueNumeric="4" />
+			<column name="machineID" value="machine4" />
+			<column name="macID" value="mac4" />
+			<column name="token" value="token4" />
+			<column name="companyName" value="" />
+			<column name="machineName" value="" />
+			<column name="terminalUA" value="" />
+			<column name="screenRes" value="" />
+			<column name="IMEI" value="" />
+			<column name="IMSI" value="" />
+			<column name="UDID" value="" />
+			<column name="PhoneNumber" value="" />
+			<column name="Platform" value="iphone" />
+			<column name="firewareVersion" value="" />
+			<column name="softwareVersion" value="1.2.1" />
+			<column name="softwareBuild" value="" />
+		</insert>
+		<insert tableName="device_info">
+			<column name="id" valueNumeric="5" />
+			<column name="machineID" value="machine5" />
+			<column name="macID" value="mac5" />
+			<column name="token" value="token5" />
+			<column name="companyName" value="" />
+			<column name="machineName" value="" />
+			<column name="terminalUA" value="" />
+			<column name="screenRes" value="" />
+			<column name="IMEI" value="" />
+			<column name="IMSI" value="" />
+			<column name="UDID" value="" />
+			<column name="PhoneNumber" value="" />
+			<column name="Platform" value="iphone" />
+			<column name="firewareVersion" value="" />
+			<column name="softwareVersion" value="1.2.1" />
+			<column name="softwareBuild" value="" />
+		</insert>
+		<insert tableName="device_info">
+			<column name="id" valueNumeric="6" />
+			<column name="machineID" value="machine6" />
+			<column name="macID" value="mac6" />
+			<column name="token" value="token6" />
+			<column name="companyName" value="" />
+			<column name="machineName" value="" />
+			<column name="terminalUA" value="" />
+			<column name="screenRes" value="" />
+			<column name="IMEI" value="" />
+			<column name="IMSI" value="" />
+			<column name="UDID" value="" />
+			<column name="PhoneNumber" value="" />
+			<column name="Platform" value="iphone" />
+			<column name="firewareVersion" value="" />
+			<column name="softwareVersion" value="2.1.3" />
+			<column name="softwareBuild" value="" />
+		</insert>
+		<insert tableName="device_info">
+			<column name="id" valueNumeric="7" />
+			<column name="machineID" value="machine7" />
+			<column name="macID" value="mac7" />
+			<column name="token" value="token7" />
+			<column name="companyName" value="" />
+			<column name="machineName" value="" />
+			<column name="terminalUA" value="" />
+			<column name="screenRes" value="" />
+			<column name="IMEI" value="" />
+			<column name="IMSI" value="" />
+			<column name="UDID" value="" />
+			<column name="PhoneNumber" value="" />
+			<column name="Platform" value="iphone" />
+			<column name="firewareVersion" value="" />
+			<column name="softwareVersion" value="1.4.0" />
+			<column name="softwareBuild" value="" />
+		</insert>
+	</changeSet>
+
+</databaseChangeLog>

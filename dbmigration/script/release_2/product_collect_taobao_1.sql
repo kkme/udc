@@ -1,0 +1,1 @@
+ALTER TABLE product_collect_taobao ADD index(userID(30));

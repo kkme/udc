@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="ProductType">
+
+	<typeAlias alias="productType" type="com.koudai.udc.statis.domain.ProductType" />
+
+	<insert id="save" parameterClass="productType">
+		insert into product_type (id,productID,typeID)
+		values (#id#,#productId#,#typeId#)
+		<selectKey keyProperty="id" resultClass="long">
+			SELECT LAST_INSERT_ID() AS ID   
+		</selectKey>
+	</insert>
+	
+	<delete id="delete" parameterClass="productType">
+		delete from product_type where productID = #productId#
+	</delete>
+	
+	<select id="getTypeIdsByProductId" parameterClass="String" resultClass="String">
+		select typeID from product_type
+		where productID = #productId#
+	</select>
+	
+</sqlMap>

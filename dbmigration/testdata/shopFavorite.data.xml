@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.6"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="@data_path@dbchangelog-1.6.xsd"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.6 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.6.xsd">
+
+	<preConditions>
+		<dbms type="mysql" />
+	</preConditions>
+
+	<changeSet id="1" author="sh">
+		<insert tableName="shop_favorite">
+			<column name="id" valueNumeric="1" />
+			<column name="shopID" value="s1" />
+			<column name="favoriteTime" value="2011-02-02 00:00:00" />
+			<column name="machineID" value="m1" />
+			<column name="networkID" value="" />
+			<column name="userID" value="@sina:123" />
+			<column name="softwareVersion" value="" />
+			<column name="softwareName" value="" />
+			<column name="firmWareVersion" value="" />
+			<column name="referID" value="" />
+			<column name="status" valueNumeric="0" />
+		</insert>
+		<insert tableName="shop_favorite">
+			<column name="id" valueNumeric="2" />
+			<column name="shopID" value="s2" />
+			<column name="favoriteTime" value="2011-02-03 00:00:00" />
+			<column name="machineID" value="m1" />
+			<column name="networkID" value="" />
+			<column name="userID" value="@sina:123" />
+			<column name="softwareVersion" value="" />
+			<column name="softwareName" value="" />
+			<column name="firmWareVersion" value="" />
+			<column name="referID" value="" />
+			<column name="status" valueNumeric="0" />
+		</insert>
+		<insert tableName="shop_favorite">
+			<column name="id" valueNumeric="3" />
+			<column name="shopID" value="s3" />
+			<column name="favoriteTime" value="2011-02-02 00:00:00" />
+			<column name="machineID" value="m2" />
+			<column name="networkID" value="" />
+			<column name="userID" value="@sina:123" />
+			<column name="softwareVersion" value="" />
+			<column name="softwareName" value="" />
+			<column name="firmWareVersion" value="" />
+			<column name="referID" value="" />
+			<column name="status" valueNumeric="0" />
+		</insert>
+		<insert tableName="shop_favorite">
+			<column name="id" valueNumeric="4" />
+			<column name="shopID" value="s4" />
+			<column name="favoriteTime" value="2011-02-02 00:00:00" />
+			<column name="machineID" value="m1" />
+			<column name="networkID" value="" />
+			<column name="userID" value="@sina:123" />
+			<column name="softwareVersion" value="" />
+			<column name="softwareName" value="" />
+			<column name="firmWareVersion" value="" />
+			<column name="referID" value="" />
+			<column name="status" valueNumeric="0" />
+		</insert>
+		<insert tableName="shop_favorite">
+			<column name="id" valueNumeric="5" />
+			<column name="shopID" value="s5" />
+			<column name="favoriteTime" value="2011-02-02 00:00:00" />
+			<column name="machineID" value="m2" />
+			<column name="networkID" value="" />
+			<column name="userID" value="@sina:123" />
+			<column name="softwareVersion" value="" />
+			<column name="softwareName" value="" />
+			<column name="firmWareVersion" value="" />
+			<column name="referID" value="" />
+			<column name="status" valueNumeric="0" />
+		</insert>
+		<insert tableName="shop_favorite">
+			<column name="id" valueNumeric="6" />
+			<column name="shopID" value="s6" />
+			<column name="favoriteTime" value="2011-02-02 00:00:00" />
+			<column name="machineID" value="m2" />
+			<column name="networkID" value="" />
+			<column name="userID" value="@sina:123" />
+			<column name="softwareVersion" value="" />
+			<column name="softwareName" value="" />
+			<column name="firmWareVersion" value="" />
+			<column name="referID" value="" />
+			<column name="status" valueNumeric="0" />
+		</insert>
+	</changeSet>
+
+</databaseChangeLog>

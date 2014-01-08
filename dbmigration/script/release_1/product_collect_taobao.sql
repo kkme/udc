@@ -1,0 +1,1 @@
+create table product_collect_taobao(id BIGINT(13) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,userID varchar(320) NOT NULL,productID varchar(1024) NOT NULL,productName varchar(1024) NOT NULL,ownerNick varchar(320) NOT NULL,createTime datetime NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;

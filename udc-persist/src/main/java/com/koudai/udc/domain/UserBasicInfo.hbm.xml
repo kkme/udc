@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.koudai.udc.domain">
+	<class name="UserBasicInfo" table="user_basic_info">
+		<id column="ID" name="id" type="long">
+			<generator class="identity" />
+		</id>
+		<property name="email" column="email" not-null="false" type="string" />
+		<property name="thirdId" column="thirdID" not-null="false" type="string" />
+		<property name="phoneNumber" column="phoneNumber" not-null="false" type="string" />
+		<property name="koudaiId" column="koudaiID" not-null="false" type="string" />
+		<property name="name" column="name" not-null="true" type="string" />
+		<property name="machineId" column="machineID" not-null="true" type="string" />
+		<property name="password" column="passwd" not-null="true" type="string" />
+		<property name="gender" column="gender" not-null="false" type="character" />
+		<property name="birthday" column="birthday" not-null="false" type="timestamp" />
+		<property name="location" column="location" not-null="false" type="string" />
+		<property name="registTime" column="registTime" not-null="true" type="timestamp" />
+		<property name="qq" column="qq" not-null="false" type="string" />
+		<property name="msn" column="msn" not-null="false" type="string" />
+		<property name="introduction" column="introduction" not-null="false" type="string" />
+		<property name="lastLoginTime" column="lastLoginTime" not-null="true" type="timestamp" />
+		<property name="enabled" column="enabled" not-null="true" type="boolean" />
+	</class>
+</hibernate-mapping>

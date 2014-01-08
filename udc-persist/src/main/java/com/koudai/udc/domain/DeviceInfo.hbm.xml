@@ -1,0 +1,26 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.koudai.udc.domain">
+	<class name="DeviceInfo" table="device_info">
+		<id column="ID" name="id" type="long">
+			<generator class="identity" />
+		</id>
+		<property name="machineId" column="machineID" not-null="true" type="string" />
+		<property name="macId" column="macID" not-null="false" type="string" />
+		<property name="token" column="token" not-null="false" type="string" />
+		<property name="companyName" column="companyName" not-null="false" type="string" />
+		<property name="machineName" column="machineName" not-null="false" type="string" />
+		<property name="terminalUa" column="terminalUA" not-null="false" type="string" />
+		<property name="screenRes" column="screenRes" not-null="false" type="string" />
+		<property name="imei" column="IMEI" not-null="false" type="string" />
+		<property name="imsi" column="IMSI" not-null="false" type="string" />
+		<property name="udid" column="UDID" not-null="false" type="string" />
+		<property name="phoneNumber" column="phoneNumber" not-null="false" type="string" />
+		<property column="platform" length="64" name="platform" not-null="true" type="com.koudai.udc.domain.PlatformUserType" />
+		<property name="firewareVersion" column="firewareVersion" not-null="false" type="string" />
+		<property name="softwareVersion" column="softwareVersion" not-null="false" type="string" />
+		<property name="softwareBuild" column="softwareBuild" not-null="false" type="string" />
+	</class>
+</hibernate-mapping>

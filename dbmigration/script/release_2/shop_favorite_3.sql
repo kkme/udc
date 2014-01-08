@@ -1,0 +1,1 @@
+ALTER TABLE shop_favorite ADD UNIQUE(userID(50), shopID(48));

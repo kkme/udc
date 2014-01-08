@@ -1,0 +1,1 @@
+ALTER TABLE user_taobao_info ADD CONSTRAINT idx_uti_userid_platform UNIQUE (userID, platform);

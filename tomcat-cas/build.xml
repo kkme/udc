@@ -1,0 +1,154 @@
+<project name="tomcat-cas" basedir="." default="restart.tomcat">
+	<property name="tomcat.home" value="${basedir}" />
+	<property name="cas.war.dir" value="${tomcat.home}/../udc-cas/target" />
+	<property name="port" value="8005" />
+
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+		<classpath>
+			<pathelement location="${basedir}/lib/ant-contrib-1.0b3.jar" />
+		</classpath>
+	</taskdef>
+
+	<target name="restart.tomcat" description="restart tomcat">
+		<antcall target="stop.tomcat" />
+		<antcall target="start.tomcat" />
+	</target>
+
+	<target name="start.tomcat" description="startup tomcat without dependence">
+		<if>
+			<os name="Mac OS X" />
+			<then>
+				<chmod perm="+x" dir="${basedir}/bin" includes="*.sh" />
+				<antcall target="mac.start.tomcat" />
+			</then>
+			<else>
+				<antcall target="windows.start.tomcat" />
+			</else>
+		</if>
+	</target>
+	
+	<target name="mac.start.tomcat">
+		<if>
+			<not>
+				<socket server="localhost" port="${port}" />
+			</not>
+			<then>
+				<echo message="start tomcat..." />
+				<exec executable="${basedir}/bin/startup.sh">
+					<env key="CATALINA_HOME" value="${basedir}" />
+				</exec>
+				<waitfor maxwait="5" maxwaitunit="minute" checkevery="10" checkeveryunit="second">
+					<and>
+						<socket server="localhost" port="${port}" />
+					</and>
+				</waitfor>
+			</then>
+		</if>
+	</target>
+
+	<target name="windows.start.tomcat">
+		<if>
+			<not>
+				<socket server="localhost" port="${port}" />
+			</not>
+			<then>
+				<echo message="start tomcat..." />
+				<java classname="org.apache.catalina.startup.Bootstrap" spawn="yes" fork="yes">
+					<jvmarg line="-Dcatalina.home=&quot;${tomcat.home}&quot; -Xmx1024m -Xms1024m -XX:PermSize=200m -XX:MaxPermSize=200m -XX:NewSize=400m -XX:MaxNewSize=400m" />
+					<arg value="start" />
+					<classpath>
+						<pathelement path="${java.home}/../lib/tools.jar" />
+						<fileset dir="${tomcat.home}">
+							<include name="bin/bootstrap.jar" />
+						</fileset>
+					</classpath>
+				</java>
+				<waitfor maxwait="5" maxwaitunit="minute" checkevery="10" checkeveryunit="second">
+					<and>
+						<socket server="localhost" port="${port}" />
+					</and>
+				</waitfor>
+			</then>
+		</if>
+	</target>
+
+	<target name="stop.tomcat" description="shutdown tomcat without dependence">
+		<if>
+			<os name="Mac OS X" />
+			<then>
+				<chmod perm="+x" dir="${basedir}/bin" />
+				<antcall target="mac.stop.tomcat" />
+			</then>
+			<else>
+				<antcall target="windows.stop.tomcat" />
+			</else>
+		</if>
+	</target>
+
+	<target name="mac.stop.tomcat">
+		<if>
+			<socket server="localhost" port="${port}" />
+			<then>
+				<echo message="stop tomcat..." />
+				<exec executable="${basedir}/bin/shutdown.sh" failonerror="false">
+					<env key="CATALINA_HOME" value="${basedir}" />
+				</exec>
+				<echo message="${basedir}/bin/shutdown.sh" />
+				<waitfor maxwait="2" maxwaitunit="minute" checkevery="10" checkeveryunit="second">
+					<not>
+						<socket server="localhost" port="${port}" />
+					</not>
+				</waitfor>
+			</then>
+		</if>
+	</target>
+	
+	<target name="windows.stop.tomcat">
+		<if>
+			<and>
+				<socket server="localhost" port="${port}" />
+			</and>
+			<then>
+				<echo message="stop tomcat..." />
+				<java classname="org.apache.catalina.startup.Bootstrap" fork="yes">
+					<jvmarg value="-Dcatalina.home=${tomcat.home}" />
+					<jvmarg value="-Djava.endorsed.dirs=${tomcat.home}/common/endorsed" />
+					<jvmarg value="-Dcatalina.base=${tomcat.home}" />
+					<jvmarg value="-Djava.io.tmpdir=${tomcat.home}/temp" />
+					<arg value="stop" />
+					<classpath>
+						<pathelement path="${java.home}/../lib/tools.jar" />
+						<fileset dir="${tomcat.home}">
+							<include name="bin/bootstrap.jar" />
+						</fileset>
+					</classpath>
+				</java>
+				<waitfor maxwait="2" maxwaitunit="minute" checkevery="10" checkeveryunit="second">
+					<not>
+						<socket server="localhost" port="${port}" />
+					</not>
+				</waitfor>
+			</then>
+		</if>
+	</target>
+	
+	<target name="copy.war">
+		<delete dir="${tomcat.home}/cas/" failonerror="false" />
+		<delete file="${tomcat.home}/cas.war" failonerror="false" />
+		<copy todir="${tomcat.home}/" overwrite="true">
+			<fileset dir="${cas.war.dir}" includes="**/cas.war" />
+		</copy>
+	</target>
+	
+	<target name="unzip.war">
+		<unzip src="${tomcat.home}/cas.war" dest="${tomcat.home}/cas"/>
+	</target>
+	
+	<target name="deploy" description="stop.tomcat,copy.war,unzip.war,start.tomcat">
+		<antcall target="stop.tomcat"/>
+		<antcall target="copy.war"/>
+		<antcall target="unzip.war"/>
+		<antcall target="start.tomcat"/>
+	</target>
+
+</project>

@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean name="UploadDeviceInfo.spring.action" class="com.koudai.udc.action.UploadDeviceInfoAction" scope="prototype">
+		<property name="deviceInfoDAOW">
+			<ref bean="deviceInfoDAOW" />
+		</property>
+		<property name="deviceInfoFactory">
+			<ref bean="deviceInfoFactory" />
+		</property>
+	</bean>
+
+	<bean name="UploadBindingInfo.spring.action" class="com.koudai.udc.action.UploadBindingInfoAction" scope="prototype">
+		<property name="bindingInfoDAOW">
+			<ref bean="bindingInfoDAOW" />
+		</property>
+		<property name="bindingInfoFactory">
+			<ref bean="bindingInfoFactory" />
+		</property>
+	</bean>
+
+	<bean name="UploadProductCollect.spring.action" class="com.koudai.udc.action.UploadProductCollectAction" scope="prototype">
+		<property name="counterService">
+			<ref bean="counterService" />
+		</property>
+		<property name="productCollectDAOW">
+			<ref bean="productCollectDAOW" />
+		</property>
+		<property name="productCollectFactory">
+			<ref bean="productCollectFactory" />
+		</property>
+	</bean>
+
+	<bean name="CancelProductCollect.spring.action" class="com.koudai.udc.action.CancelProductCollectAction" scope="prototype">
+		<property name="productCollectDAOW">
+			<ref bean="productCollectDAOW" />
+		</property>
+	</bean>
+
+	<bean name="UploadShopFavorite.spring.action" class="com.koudai.udc.action.UploadShopFavoriteAction" scope="prototype">
+		<property name="counterService">
+			<ref bean="counterService" />
+		</property>
+		<property name="shopFavoriteDAOW">
+			<ref bean="shopFavoriteDAOW" />
+		</property>
+		<property name="shopFavoriteFactory">
+			<ref bean="shopFavoriteFactory" />
+		</property>
+	</bean>
+
+	<bean name="CancelShopFavorite.spring.action" class="com.koudai.udc.action.CancelShopFavoriteAction" scope="prototype">
+		<property name="shopFavoriteDAOW">
+			<ref bean="shopFavoriteDAOW" />
+		</property>
+	</bean>
+
+	<bean name="GetProductCollectMd5.spring.action" class="com.koudai.udc.action.GetProductCollectMd5Action" scope="prototype">
+		<property name="md5Generator">
+			<ref bean="md5Generator" />
+		</property>
+		<property name="productCollectDAOR">
+			<ref bean="productCollectDAOR" />
+		</property>
+	</bean>
+
+	<bean name="GetShopFavoriteMd5.spring.action" class="com.koudai.udc.action.GetShopFavoriteMd5Action" scope="prototype">
+		<property name="md5Generator">
+			<ref bean="md5Generator" />
+		</property>
+		<property name="shopFavoriteDAOR">
+			<ref bean="shopFavoriteDAOR" />
+		</property>
+	</bean>
+
+	<bean name="GetProductCollect.spring.action" class="com.koudai.udc.action.GetProductCollectAction" scope="prototype">
+		<property name="productCollectDAOR">
+			<ref bean="productCollectDAOR" />
+		</property>
+	</bean>
+
+	<bean name="GetShopFavorite.spring.action" class="com.koudai.udc.action.GetShopFavoriteAction" scope="prototype">
+		<property name="shopFavoriteDAOR">
+			<ref bean="shopFavoriteDAOR" />
+		</property>
+	</bean>
+
+	<bean name="ThridPartyUserLogin.spring.action" class="com.koudai.udc.action.ThridPartyUserLoginAction" scope="prototype">
+		<property name="userBasicInfoDAOW">
+			<ref bean="userBasicInfoDAOW" />
+		</property>
+		<property name="userTaobaoInfoDAOW">
+			<ref bean="userTaobaoInfoDAOW" />
+		</property>
+		<property name="userBasicInfoFactory">
+			<ref bean="userBasicInfoFactory" />
+		</property>
+		<property name="userTaobaoInfoFactory">
+			<ref bean="userTaobaoInfoFactory" />
+		</property>
+	</bean>
+
+	<bean name="UploadThridPartyUserInfo.spring.action" class="com.koudai.udc.action.UploadThridPartyUserInfoAction" scope="prototype">
+		<property name="userBasicInfoDAOW">
+			<ref bean="userBasicInfoDAOW" />
+		</property>
+	</bean>
+	
+	<bean name="UploadBindingInfoV2.spring.action" class="com.koudai.udc.action.UploadBindingInfoV2Action" scope="prototype">
+		<property name="bindingInfoDAOW">
+			<ref bean="bindingInfoDAOW" />
+		</property>
+		<property name="bindingInfoFactory">
+			<ref bean="bindingInfoFactory" />
+		</property>
+		<property name="userDataService">
+			<ref bean="userDataService" />
+		</property>
+		<property name="transactionTemplate">
+			<ref bean="transactionTemplate" />
+		</property>
+	</bean>
+	
+	<bean name="UploadProductCollectV2.spring.action" class="com.koudai.udc.action.UploadProductCollectV2Action" scope="prototype">
+		<property name="counterService">
+			<ref bean="counterService" />
+		</property>
+		<property name="productCollectDAOW">
+			<ref bean="productCollectDAOW" />
+		</property>
+		<property name="productCollectFactory">
+			<ref bean="productCollectFactory" />
+		</property>
+	</bean>
+	
+	<bean name="UploadShopFavoriteV2.spring.action" class="com.koudai.udc.action.UploadShopFavoriteV2Action" scope="prototype">
+		<property name="counterService">
+			<ref bean="counterService" />
+		</property>
+		<property name="shopFavoriteDAOW">
+			<ref bean="shopFavoriteDAOW" />
+		</property>
+		<property name="shopFavoriteFactory">
+			<ref bean="shopFavoriteFactory" />
+		</property>
+	</bean>
+	
+	<bean name="ReplaceUserData.spring.action" class="com.koudai.udc.action.ReplaceUserDataAction" scope="prototype">
+		<property name="userDataService">
+			<ref bean="userDataService" />
+		</property>
+	</bean>
+	
+	<bean name="BatchCancelUserData.spring.action" class="com.koudai.udc.action.BatchCancelUserDataAction" scope="prototype">
+		<property name="userDataService">
+			<ref bean="userDataService" />
+		</property>
+	</bean>
+	
+	<bean name="GetUserCollectProductNum.spring.action" class="com.koudai.udc.action.GetUserCollectProductNumAction" scope="prototype">
+		<property name="userDataService">
+			<ref bean="userDataService" />
+		</property>
+	</bean>
+	
+	<bean name="GetUserFavoriteShopNum.spring.action" class="com.koudai.udc.action.GetUserFavoriteShopNumAction" scope="prototype">
+		<property name="userDataService">
+			<ref bean="userDataService" />
+		</property>
+	</bean>
+	
+	<bean name="GetProductCollectedTop.spring.action" class="com.koudai.udc.action.GetProductCollectedTopAction" scope="prototype">
+		<property name="productCollectTopDAOR">
+			<ref bean="productCollectTopDAOR" />
+		</property>
+	</bean>
+	
+	<bean name="UploadProductCollectTop.spring.action" class="com.koudai.udc.action.UploadProductCollectTopAction" scope="prototype">
+		<property name="productCollectTopDAOW">
+			<ref bean="productCollectTopDAOW" />
+		</property>
+		<property name="productCollectTopFactory">
+			<ref bean="productCollectTopFactory" />
+		</property>
+	</bean>
+	
+	<bean name="UploadProductCollectBijia.spring.action" class="com.koudai.udc.action.UploadProductCollectBijiaAction" scope="prototype">
+		<property name="productCollectBijiaDAOW">
+			<ref bean="productCollectBijiaDAOW" />
+		</property>
+		<property name="productCollectBijiaFactory">
+			<ref bean="productCollectBijiaFactory" />
+		</property>
+	</bean>
+	
+	<bean name="UploadProductCollectPriceRemind.spring.action" class="com.koudai.udc.action.UploadProductCollectPriceRemindAction" scope="prototype">
+		<property name="productRemindService">
+			<ref bean="productRemindService" />
+		</property>
+	</bean>
+	
+	<bean name="CancelProductCollectBijia.spring.action" class="com.koudai.udc.action.CancelProductCollectBijiaAction" scope="prototype">
+		<property name="productRemindService">
+			<ref bean="productRemindService" />
+		</property>
+	</bean>
+	
+	<bean name="UploadPriceRemind.spring.action" class="com.koudai.udc.action.UploadPriceRemindAction" scope="prototype">
+		<property name="productRemindService">
+			<ref bean="productRemindService" />
+		</property>
+	</bean>
+	
+	<bean name="CancelPriceRemind.spring.action" class="com.koudai.udc.action.CancelPriceRemindAction" scope="prototype">
+		<property name="productRemindService">
+			<ref bean="productRemindService" />
+		</property>
+	</bean>
+	
+	<bean name="UploadPriceRemindAnonymous.spring.action" class="com.koudai.udc.action.UploadPriceRemindAnonymousAction" scope="prototype">
+		<property name="priceRemindAnonymousDAOW">
+			<ref bean="priceRemindAnonymousDAOW" />
+		</property>
+		<property name="priceRemindAnonymousFactory">
+			<ref bean="priceRemindAnonymousFactory" />
+		</property>
+	</bean>
+		
+	<bean name="GetProductCollectBijia.spring.action" class="com.koudai.udc.action.GetProductCollectBijiaAction" scope="prototype">
+		<property name="productRemindService">
+			<ref bean="productRemindService" />
+		</property>
+	</bean>
+		
+	<bean name="GetProductIDCollectedCount.spring.action" class="com.koudai.udc.action.GetProductIDCollectedCountAction" scope="prototype">
+		<property name="productCollectedCountDAOR">
+			<ref bean="productCollectedCountDAOR" />
+		</property>
+	</bean>
+		
+	<bean name="GetShopIDFavoritedCount.spring.action" class="com.koudai.udc.action.GetShopIDFavoritedCountAction" scope="prototype">
+		<property name="shopFavoritedCountDAOR">
+			<ref bean="shopFavoritedCountDAOR" />
+		</property>
+	</bean>
+		
+	<bean name="UploadMachineID.spring.action" class="com.koudai.udc.action.UploadMachineIDAction" scope="prototype">
+		<property name="machineSequenceDAOW">
+			<ref bean="machineSequenceDAOW" />
+		</property>
+		<property name="machineSequenceFactory">
+			<ref bean="machineSequenceFactory" />
+		</property>
+	</bean>
+		
+	<bean name="GetMachineID.spring.action" class="com.koudai.udc.action.GetMachineIDAction" scope="prototype">
+		<property name="machineSequenceDAOR">
+			<ref bean="machineSequenceDAOR" />
+		</property>
+	</bean>
+		
+	<bean name="UploadIosToken.spring.action" class="com.koudai.udc.action.UploadIosTokenAction" scope="prototype">
+		<property name="iosPushDAOW">
+			<ref bean="iosPushDAOW" />
+		</property>
+		<property name="iosPushFactory">
+			<ref bean="iosPushFactory" />
+		</property>
+	</bean>
+		
+	<bean name="IsUserProductCollected.spring.action" class="com.koudai.udc.action.IsUserProductCollectedAction" scope="prototype">
+		<property name="productCollectDAOR">
+			<ref bean="productCollectDAOR" />
+		</property>
+	</bean>
+		
+	<bean name="IsUserShopFavorited.spring.action" class="com.koudai.udc.action.IsUserShopFavoritedAction" scope="prototype">
+		<property name="shopFavoriteDAOR">
+			<ref bean="shopFavoriteDAOR" />
+		</property>
+	</bean>
+		
+	<bean name="GetIosPushDiscountData.spring.action" class="com.koudai.udc.action.GetIosPushDiscountDataAction" scope="prototype">
+		<property name="iosPushInfoDAOW">
+			<ref bean="iosPushInfoDAOW" />
+		</property>
+		<property name="iosPushInfoFactory">
+			<ref bean="iosPushInfoFactory" />
+		</property>
+	</bean>
+		
+	<bean name="GetAndroidPushDiscountData.spring.action" class="com.koudai.udc.action.GetAndroidPushDiscountDataAction" scope="prototype">
+		<property name="androidPushInfoDAOW">
+			<ref bean="androidPushInfoDAOW" />
+		</property>
+	</bean>
+		
+	<bean name="UploadIosPushDiscount.spring.action" class="com.koudai.udc.action.UploadIosPushDiscountAction" scope="prototype">
+		<property name="iosPushInfoDAOW">
+			<ref bean="iosPushInfoDAOW" />
+		</property>
+		<property name="productPushDAOW">
+			<ref bean="productPushDAOW" />
+		</property>
+		<property name="iosPushInfoFactory">
+			<ref bean="iosPushInfoFactory" />
+		</property>
+		<property name="productPushFactory">
+			<ref bean="productPushFactory" />
+		</property>
+	</bean>
+		
+	<bean name="UploadAndroidPushDiscount.spring.action" class="com.koudai.udc.action.UploadAndroidPushDiscountAction" scope="prototype">
+		<property name="androidPushInfoDAOW">
+			<ref bean="androidPushInfoDAOW" />
+		</property>
+		<property name="productPushDAOW">
+			<ref bean="productPushDAOW" />
+		</property>
+		<property name="androidPushInfoFactory">
+			<ref bean="androidPushInfoFactory" />
+		</property>
+		<property name="productPushFactory">
+			<ref bean="productPushFactory" />
+		</property>
+	</bean>
+	
+	<bean name="UploadProductCollectWeekTop.spring.action" class="com.koudai.udc.action.UploadProductCollectWeekTopAction" scope="prototype">
+		<property name="productCollectWeekTopDAOW">
+			<ref bean="productCollectWeekTopDAOW" />
+		</property>
+		<property name="productCollectWeekTopFactory">
+			<ref bean="productCollectWeekTopFactory" />
+		</property>
+	</bean>
+		
+	<bean name="GetProductCollectedWeekTop.spring.action" class="com.koudai.udc.action.GetProductCollectedWeekTopAction" scope="prototype">
+		<property name="productCollectWeekTopDAOR">
+			<ref bean="productCollectWeekTopDAOR" />
+		</property>
+	</bean>
+		
+	<bean name="GetUserCollectionAndPurchase.spring.action" class="com.koudai.udc.action.GetUserCollectionAndPurchaseAction" scope="prototype">
+		<property name="productCollectDAOR">
+			<ref bean="productCollectDAOR" />
+		</property>
+		<property name="purchaseRecordDAOR">
+			<ref bean="purchaseRecordDAOR" />
+		</property>
+	</bean>
+	
+	<bean name="IsUserActive.spring.action" class="com.koudai.udc.action.IsUserActiveAction" scope="prototype">
+		<property name="userActivationDAOW">
+			<ref bean="userActivationDAOW" />
+		</property>
+		<property name="userActivationFactory">
+			<ref bean="userActivationFactory" />
+		</property>
+		<property name="myStreetConfiguration">
+			<ref bean="myStreetConfiguration" />
+		</property>
+	</bean>
+	
+	<bean name="IsUserYellowDiamond.spring.action" class="com.koudai.udc.action.IsUserYellowDiamondAction" scope="prototype">
+		<property name="userActivationDAOW">
+			<ref bean="userActivationDAOW" />
+		</property>
+		<property name="userTaobaoInfoDAOW">
+			<ref bean="userTaobaoInfoDAOW" />
+		</property>
+		<property name="userActivationFactory">
+			<ref bean="userActivationFactory" />
+		</property>
+		<property name="taobaoConfiguration">
+			<ref bean="taobaoConfiguration" />
+		</property>
+	</bean>
+	
+	<bean name="UploadUserIosPayInfo.spring.action" class="com.koudai.udc.action.UploadUserIosPayInfoAction" scope="prototype">
+		<property name="userActivationDAOW">
+			<ref bean="userActivationDAOW" />
+		</property>
+		<property name="userActivationFactory">
+			<ref bean="userActivationFactory" />
+		</property>
+	</bean>
+	
+	<bean name="UploadUserTestInfo.spring.action" class="com.koudai.udc.action.UploadUserTestInfoAction" scope="prototype">
+		<property name="userTestInfoDAOW">
+			<ref bean="userTestInfoDAOW" />
+		</property>
+		<property name="userActivationDAOW">
+			<ref bean="userActivationDAOW" />
+		</property>
+		<property name="userTestInfoFactory">
+			<ref bean="userTestInfoFactory" />
+		</property>
+	</bean>
+	
+	<bean name="GetUserTestInfo.spring.action" class="com.koudai.udc.action.GetUserTestInfoAction" scope="prototype">
+		<property name="userTestInfoDAOR">
+			<ref bean="userTestInfoDAOR" />
+		</property>
+	</bean>
+	
+	<bean name="UploadProductCollectV3.spring.action" class="com.koudai.udc.action.UploadProductCollectV3Action" scope="prototype">
+		<property name="counterService">
+			<ref bean="counterService" />
+		</property>
+		<property name="productCollectDAOW">
+			<ref bean="productCollectDAOW" />
+		</property>
+		<property name="productCollectFactory">
+			<ref bean="productCollectFactory" />
+		</property>
+	</bean>
+	
+	<bean name="UploadShopFavoriteV3.spring.action" class="com.koudai.udc.action.UploadShopFavoriteV3Action" scope="prototype">
+		<property name="counterService">
+			<ref bean="counterService" />
+		</property>
+		<property name="shopFavoriteDAOW">
+			<ref bean="shopFavoriteDAOW" />
+		</property>
+		<property name="shopFavoriteFactory">
+			<ref bean="shopFavoriteFactory" />
+		</property>
+	</bean>
+	
+	<bean name="UploadTaobaoUserInfo.spring.action" class="com.koudai.udc.action.UploadTaobaoUserInfoAction" scope="prototype">
+		<property name="userBasicInfoDAOW">
+			<ref bean="userBasicInfoDAOW" />
+		</property>
+		<property name="userTaobaoInfoDAOW">
+			<ref bean="userTaobaoInfoDAOW" />
+		</property>
+		<property name="userBasicInfoFactory">
+			<ref bean="userBasicInfoFactory" />
+		</property>
+		<property name="userTaobaoInfoFactory">
+			<ref bean="userTaobaoInfoFactory" />
+		</property>
+	</bean>
+	
+	<bean name="UploadSinaWeiboUserInfo.spring.action" class="com.koudai.udc.action.UploadSinaWeiboUserInfoAction" scope="prototype">
+		<property name="userBasicInfoDAOW">
+			<ref bean="userBasicInfoDAOW" />
+		</property>
+		<property name="userSinaInfoDAOW">
+			<ref bean="userSinaInfoDAOW" />
+		</property>
+		<property name="userBasicInfoFactory">
+			<ref bean="userBasicInfoFactory" />
+		</property>
+		<property name="userSinaInfoFactory">
+			<ref bean="userSinaInfoFactory" />
+		</property>
+	</bean>
+	
+	<bean name="UploadQQUserInfo.spring.action" class="com.koudai.udc.action.UploadQQUserInfoAction" scope="prototype">
+		<property name="userBasicInfoDAOW">
+			<ref bean="userBasicInfoDAOW" />
+		</property>
+		<property name="userQQInfoDAOW">
+			<ref bean="userQQInfoDAOW" />
+		</property>
+		<property name="userBasicInfoFactory">
+			<ref bean="userBasicInfoFactory" />
+		</property>
+		<property name="userQQInfoFactory">
+			<ref bean="userQQInfoFactory" />
+		</property>
+	</bean>
+	
+	<bean name="UploadPurchaseRecord.spring.action" class="com.koudai.udc.action.UploadPurchaseRecordAction" scope="prototype">
+		<property name="purchaseRecordDAOW">
+			<ref bean="purchaseRecordDAOW" />
+		</property>
+		<property name="purchaseRecordFactory">
+			<ref bean="purchaseRecordFactory" />
+		</property>
+	</bean>
+	
+	<bean name="UploadTaobaoProductCollect.spring.action" class="com.koudai.udc.action.UploadTaobaoProductCollectAction" scope="prototype">
+		<property name="productCollectTaobaoDAOW">
+			<ref bean="productCollectTaobaoDAOW" />
+		</property>
+		<property name="productCollectTaobaoFactory">
+			<ref bean="productCollectTaobaoFactory" />
+		</property>
+		<property name="transactionTemplate">
+			<ref bean="transactionTemplate" />
+		</property>
+	</bean>
+	
+	<bean name="UploadTaobaoShopFavorite.spring.action" class="com.koudai.udc.action.UploadTaobaoShopFavoriteAction" scope="prototype">
+		<property name="shopFavoriteTaobaoDAOW">
+			<ref bean="shopFavoriteTaobaoDAOW" />
+		</property>
+		<property name="shopFavoriteTaobaoFactory">
+			<ref bean="shopFavoriteTaobaoFactory" />
+		</property>
+		<property name="transactionTemplate">
+			<ref bean="transactionTemplate" />
+		</property>
+	</bean>
+	
+	<bean name="RemoveTaobaoProductCollect.spring.action" class="com.koudai.udc.action.RemoveTaobaoProductCollectAction" scope="prototype">
+		<property name="productCollectTaobaoDAOW">
+			<ref bean="productCollectTaobaoDAOW" />
+		</property>
+	</bean>
+	
+	<bean name="RemoveTaobaoShopFavorite.spring.action" class="com.koudai.udc.action.RemoveTaobaoShopFavoriteAction" scope="prototype">
+		<property name="shopFavoriteTaobaoDAOW">
+			<ref bean="shopFavoriteTaobaoDAOW" />
+		</property>
+	</bean>
+	
+	<bean name="IsUserColdStart.spring.action" class="com.koudai.udc.action.IsUserColdStartAction" scope="prototype">
+		<property name="productCollectDAOR">
+			<ref bean="productCollectDAOR" />
+		</property>
+		<property name="userTestInfoDAOR">
+			<ref bean="userTestInfoDAOR" />
+		</property>
+		<property name="myStreetConfiguration">
+			<ref bean="myStreetConfiguration" />
+		</property>
+	</bean>
+	
+	<bean name="IsUserFollowOfficialQZone.spring.action" class="com.koudai.udc.action.IsUserFollowOfficialQZoneAction" scope="prototype">
+		<property name="userQQInfoDAOR">
+			<ref bean="userQQInfoDAOR" />
+		</property>
+		<property name="qqConfiguration">
+			<ref bean="qqConfiguration" />
+		</property>
+	</bean>
+	
+	<bean name="UploadUserAlgorithmInfo.spring.action" class="com.koudai.udc.action.UploadUserAlgorithmInfoAction" scope="prototype">
+		<property name="userAlgorithmInfoDAOW">
+			<ref bean="userAlgorithmInfoDAOW" />
+		</property>
+		<property name="userAlgorithmInfoFactory">
+			<ref bean="userAlgorithmInfoFactory" />
+		</property>
+	</bean>
+	
+	<bean name="GetUserAlgorithmInfo.spring.action" class="com.koudai.udc.action.GetUserAlgorithmInfoAction" scope="prototype">
+		<property name="userAlgorithmInfoDAOR">
+			<ref bean="userAlgorithmInfoDAOR" />
+		</property>
+		<property name="userAlgorithmInfoFactory">
+			<ref bean="userAlgorithmInfoFactory" />
+		</property>
+		<property name="myStreetConfiguration">
+			<ref bean="myStreetConfiguration" />
+		</property>
+	</bean>
+			
+	<bean name="UploadBindingInfoV3.spring.action" class="com.koudai.udc.action.UploadBindingInfoV3Action" scope="prototype">
+		<property name="bindingInfoDAOW">
+			<ref bean="bindingInfoDAOW" />
+		</property>
+		<property name="bindingInfoFactory">
+			<ref bean="bindingInfoFactory" />
+		</property>
+		<property name="userDataService">
+			<ref bean="userDataService" />
+		</property>
+		<property name="transactionTemplate">
+			<ref bean="transactionTemplate" />
+		</property>
+	</bean>
+			
+	<bean name="UploadAllProductCollectedTop30.spring.action" class="com.koudai.udc.action.UploadAllProductCollectedTop30Action" scope="prototype">
+		<property name="productCollectTopDAOW">
+			<ref bean="productCollectTopDAOW" />
+		</property>
+		<property name="productCollectTopFactory">
+			<ref bean="productCollectTopFactory" />
+		</property>
+	</bean>
+			
+	<bean name="GetAllProductCollectedTop30.spring.action" class="com.koudai.udc.action.GetAllProductCollectedTop30Action" scope="prototype">
+		<property name="productCollectTopDAOR">
+			<ref bean="productCollectTopDAOR" />
+		</property>
+	</bean>
+	
+	<bean name="GetTaobaoSellerSid.spring.action" class="com.koudai.udc.action.GetTaobaoSellerSidAction" scope="prototype">
+		<property name="userTaobaoInfoDAOW">
+			<ref bean="userTaobaoInfoDAOW" />
+		</property>
+		<property name="taobaoConfiguration">
+			<ref bean="taobaoConfiguration" />
+		</property>
+	</bean>
+	
+	<bean name="GetShopFavoriteV2.spring.action" class="com.koudai.udc.action.GetShopFavoriteV2Action" scope="prototype">
+		<property name="shopFavoriteDAOR">
+			<ref bean="shopFavoriteDAOR" />
+		</property>
+	</bean>
+	
+	<bean name="GetTaobaoUserId.spring.action" class="com.koudai.udc.action.GetTaobaoUserIdAction" scope="prototype">
+		<property name="userTaobaoInfoDAOR">
+			<ref bean="userTaobaoInfoDAOR" />
+		</property>
+	</bean>
+	
+	<bean name="UploadTaobaoBindingInfo.spring.action" class="com.koudai.udc.action.UploadTaobaoBindingInfoAction" scope="prototype">
+		<property name="taobaoBindingInfoDAOW">
+			<ref bean="taobaoBindingInfoDAOW" />
+		</property>
+		<property name="taobaoBindingInfoFactory">
+			<ref bean="taobaoBindingInfoFactory" />
+		</property>
+	</bean>
+	
+	<bean name="GetTaobaoBindingInfo.spring.action" class="com.koudai.udc.action.GetTaobaoBindingInfoAction" scope="prototype">
+		<property name="taobaoBindingInfoDAOR">
+			<ref bean="taobaoBindingInfoDAOR" />
+		</property>
+	</bean>
+	
+	<bean name="CancelTaobaoBinding.spring.action" class="com.koudai.udc.action.CancelTaobaoBindingAction" scope="prototype">
+		<property name="taobaoBindingInfoDAOW">
+			<ref bean="taobaoBindingInfoDAOW" />
+		</property>
+	</bean>
+	
+	<bean name="GetDeviceToken.spring.action" class="com.koudai.udc.action.GetDeviceTokenAction" scope="prototype">
+		<property name="deviceInfoDAOR">
+			<ref bean="deviceInfoDAOR" />
+		</property>
+	</bean>
+			
+	<bean name="GetIosPushDiscountDataV2.spring.action" class="com.koudai.udc.action.GetIosPushDiscountDataV2Action" scope="prototype">
+		<property name="iosPushInfoDAOW">
+			<ref bean="iosPushInfoDAOW" />
+		</property>
+		<property name="iosPushInfoFactory">
+			<ref bean="iosPushInfoFactory" />
+		</property>
+	</bean>
+		
+	<bean name="GetAndroidPushDiscountDataV2.spring.action" class="com.koudai.udc.action.GetAndroidPushDiscountDataV2Action" scope="prototype">
+		<property name="androidPushInfoDAOW">
+			<ref bean="androidPushInfoDAOW" />
+		</property>
+	</bean>
+	
+	<bean name="UploadIosPushDiscountV2.spring.action" class="com.koudai.udc.action.UploadIosPushDiscountV2Action" scope="prototype">
+		<property name="iosPushInfoDAOW">
+			<ref bean="iosPushInfoDAOW" />
+		</property>
+		<property name="productPushDAOW">
+			<ref bean="productPushDAOW" />
+		</property>
+		<property name="iosPushInfoFactory">
+			<ref bean="iosPushInfoFactory" />
+		</property>
+		<property name="productPushFactory">
+			<ref bean="productPushFactory" />
+		</property>
+	</bean>
+		
+	<bean name="UploadAndroidPushDiscountV2.spring.action" class="com.koudai.udc.action.UploadAndroidPushDiscountV2Action" scope="prototype">
+		<property name="androidPushInfoDAOW">
+			<ref bean="androidPushInfoDAOW" />
+		</property>
+		<property name="productPushDAOW">
+			<ref bean="productPushDAOW" />
+		</property>
+		<property name="androidPushInfoFactory">
+			<ref bean="androidPushInfoFactory" />
+		</property>
+		<property name="productPushFactory">
+			<ref bean="productPushFactory" />
+		</property>
+	</bean>
+	
+</beans>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.6"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="@data_path@dbchangelog-1.6.xsd"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.6 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.6.xsd">
+
+	<include file="@data_path@build/script/release_1/userBasicInfo.xml" />
+	<include file="@data_path@build/script/release_1/bindingInfo.xml" />
+	<include file="@data_path@build/script/release_1/userRelation.xml" />
+	<include file="@data_path@build/script/release_1/productCollect.xml" />
+	<include file="@data_path@build/script/release_1/shopFavorite.xml" />
+	<include file="@data_path@build/script/release_1/deviceInfo.xml" />
+	<include file="@data_path@build/script/release_1/productStatisInfo.xml" />
+	<include file="@data_path@build/script/release_1/productCollectTop.xml" />
+	<include file="@data_path@build/script/release_1/shopFavoriteTop.xml" />
+	<include file="@data_path@build/script/release_1/productCollectBijia.xml" />
+	<include file="@data_path@build/script/release_1/priceRemind.xml" />
+	<include file="@data_path@build/script/release_1/priceRemindAnonymous.xml" />
+	<include file="@data_path@build/script/release_1/machineSequence.xml" />
+	<include file="@data_path@build/script/release_1/iosPush.xml" />
+	<include file="@data_path@build/script/release_1/productCollectedCount.xml" />
+	<include file="@data_path@build/script/release_1/shopFavoritedCount.xml" />
+	<include file="@data_path@build/script/release_1/userTaobaoInfo.xml" />
+	<include file="@data_path@build/script/release_1/iosPushInfo.xml" />
+	<include file="@data_path@build/script/release_1/androidPushInfo.xml" />
+	<include file="@data_path@build/script/release_1/machineidProductPush.xml" />
+	<include file="@data_path@build/script/release_1/productCollectWeekTop.xml" />
+	<include file="@data_path@build/script/release_1/userActivation.xml" />
+	<include file="@data_path@build/script/release_1/userTestInfo.xml" />
+	<include file="@data_path@build/script/release_1/userSinaInfo.xml" />
+	<include file="@data_path@build/script/release_1/userQQInfo.xml" />
+	<include file="@data_path@build/script/release_1/purchaseRecord.xml" />
+	<include file="@data_path@build/script/release_1/productCollectTaobao.xml" />
+	<include file="@data_path@build/script/release_1/shopFavoriteTaobao.xml" />
+	<include file="@data_path@build/script/release_1/userAlgorithmInfo.xml" />
+	<include file="@data_path@build/script/release_1/taobaoBindingInfo.xml" />
+
+</databaseChangeLog>

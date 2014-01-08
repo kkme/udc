@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.6"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="@data_path@dbchangelog-1.6.xsd"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.6 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.6.xsd">
+
+	<preConditions>
+		<dbms type="mysql" />
+	</preConditions>
+
+	<changeSet id="1" author="cl">
+		<insert tableName="user_activation">
+			<column name="id" valueNumeric="1" />
+			<column name="userID" value="@sina:test" />
+			<column name="iosPay" valueNumeric="1" />
+			<column name="yellowDiamond" valueNumeric="0" />
+			<column name="alreadyTest" valueNumeric="0" />
+		</insert>
+		<insert tableName="user_activation">
+			<column name="id" valueNumeric="2" />
+			<column name="userID" value="@sina:test2" />
+			<column name="iosPay" valueNumeric="0" />
+			<column name="yellowDiamond" valueNumeric="1" />
+			<column name="alreadyTest" valueNumeric="1" />
+		</insert>
+	</changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.6"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="@data_path@dbchangelog-1.6.xsd"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.6 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.6.xsd">
+
+	<preConditions>
+		<dbms type="mysql" />
+	</preConditions>
+
+	<changeSet id="1" author="cl">
+		<insert tableName="user_test_info">
+			<column name="id" valueNumeric="1" />
+			<column name="userID" value="@taobao:test" />
+			<column name="questionID" value="3" />
+			<column name="answerID" value="4,5" />
+		</insert>
+		<insert tableName="user_test_info">
+			<column name="id" valueNumeric="2" />
+			<column name="userID" value="@taobao:test2" />
+			<column name="questionID" value="1" />
+			<column name="answerID" value="1" />
+		</insert>
+		<insert tableName="user_test_info">
+			<column name="id" valueNumeric="3" />
+			<column name="userID" value="@taobao:test2" />
+			<column name="questionID" value="2" />
+			<column name="answerID" value="2" />
+		</insert>
+	</changeSet>
+
+</databaseChangeLog>

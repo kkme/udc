@@ -1,0 +1,1 @@
+create table binding_info(id BIGINT(12) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,machineID varchar(128) NOT NULL,userID varchar(320) NOT NULL,bindingTime datetime NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;

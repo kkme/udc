@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<bean id="casPropertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:cas.properties</value>
+				<value>classpath:taobao.properties</value>
+				<value>classpath:sina.properties</value>
+				<value>classpath:qq.properties</value>
+				<value>classpath:renren.properties</value>
+				<value>classpath:douban.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="taobaoConfiguration" class="com.koudai.udc.service.impl.TaobaoConfiguration">
+		<constructor-arg>
+			<ref local="taobaoProperties" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="taobaoProperties" class="com.koudai.udc.service.impl.FileBasedProperties">
+		<constructor-arg>
+			<value>taobao</value>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="sinaConfiguration" class="com.koudai.udc.service.impl.SinaConfiguration">
+		<constructor-arg>
+			<ref local="sinaProperties" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="sinaProperties" class="com.koudai.udc.service.impl.FileBasedProperties">
+		<constructor-arg>
+			<value>sina</value>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="qqConfiguration" class="com.koudai.udc.service.impl.QQConfiguration">
+		<constructor-arg>
+			<ref local="qqProperties" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="qqProperties" class="com.koudai.udc.service.impl.FileBasedProperties">
+		<constructor-arg>
+			<value>qq</value>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="renrenConfiguration" class="com.koudai.udc.service.impl.RenrenConfiguration">
+		<constructor-arg>
+			<ref local="renrenProperties" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="renrenProperties" class="com.koudai.udc.service.impl.FileBasedProperties">
+		<constructor-arg>
+			<value>renren</value>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="doubanConfiguration" class="com.koudai.udc.service.impl.DoubanConfiguration">
+		<constructor-arg>
+			<ref local="doubanProperties" />
+		</constructor-arg>
+	</bean>
+	
+	<bean id="doubanProperties" class="com.koudai.udc.service.impl.FileBasedProperties">
+		<constructor-arg>
+			<value>douban</value>
+		</constructor-arg>
+	</bean>
+	
+</beans>

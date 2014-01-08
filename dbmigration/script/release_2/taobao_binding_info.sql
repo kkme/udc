@@ -1,0 +1,1 @@
+alter table taobao_binding_info add unique uni_tbi_userID (userID(50));

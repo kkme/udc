@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.6"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="@data_path@dbchangelog-1.6.xsd"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.6 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.6.xsd">
+
+	<preConditions>
+		<dbms type="mysql" />
+	</preConditions>
+
+	<changeSet id="1" author="sh">
+		<insert tableName="product_collect_top">
+			<column name="id" valueNumeric="1" />
+			<column name="productID" value="taobao1" />
+			<column name="collectedNum" valueNumeric="1" />
+			<column name="statTime" value="2012-02-02" />
+			<column name="typeID" value="Combine_Default" />
+			<column name="useType" valueNumeric="0" />
+		</insert>
+		<insert tableName="product_collect_top">
+			<column name="id" valueNumeric="2" />
+			<column name="productID" value="taobao2" />
+			<column name="collectedNum" valueNumeric="2" />
+			<column name="statTime" value="2012-02-02" />
+			<column name="typeID" value="Combine_Default" />
+			<column name="useType" valueNumeric="0" />
+		</insert>
+		<insert tableName="product_collect_top">
+			<column name="id" valueNumeric="3" />
+			<column name="productID" value="taobao3" />
+			<column name="collectedNum" valueNumeric="3" />
+			<column name="statTime" value="2012-02-02" />
+			<column name="typeID" value="Combine_Default" />
+			<column name="useType" valueNumeric="0" />
+		</insert>
+		<insert tableName="product_collect_top">
+			<column name="id" valueNumeric="4" />
+			<column name="productID" value="taobao4" />
+			<column name="collectedNum" valueNumeric="4" />
+			<column name="statTime" value="2012-02-02" />
+			<column name="typeID" value="Combine_Default" />
+			<column name="useType" valueNumeric="0" />
+		</insert>
+		<insert tableName="product_collect_top">
+			<column name="id" valueNumeric="5" />
+			<column name="productID" value="taobao5" />
+			<column name="collectedNum" valueNumeric="5" />
+			<column name="statTime" value="2012-02-02" />
+			<column name="typeID" value="Combine_Default" />
+			<column name="useType" valueNumeric="0" />
+		</insert>
+		<insert tableName="product_collect_top">
+			<column name="id" valueNumeric="6" />
+			<column name="productID" value="taobao6" />
+			<column name="collectedNum" valueNumeric="6" />
+			<column name="statTime" value="2012-02-02" />
+			<column name="typeID" value="Combine_Default" />
+			<column name="useType" valueNumeric="0" />
+		</insert>
+		<insert tableName="product_collect_top">
+			<column name="id" valueNumeric="7" />
+			<column name="productID" value="taobao7" />
+			<column name="collectedNum" valueNumeric="7" />
+			<column name="statTime" value="2012-02-02" />
+			<column name="typeID" value="Combine_Default" />
+			<column name="useType" valueNumeric="0" />
+		</insert>
+		<insert tableName="product_collect_top">
+			<column name="id" valueNumeric="8" />
+			<column name="productID" value="taobao8" />
+			<column name="collectedNum" valueNumeric="8" />
+			<column name="statTime" value="2012-02-02" />
+			<column name="typeID" value="Combine_Default" />
+			<column name="useType" valueNumeric="0" />
+		</insert>
+		<insert tableName="product_collect_top">
+			<column name="id" valueNumeric="9" />
+			<column name="productID" value="taobao9" />
+			<column name="collectedNum" valueNumeric="9" />
+			<column name="statTime" value="2012-02-02" />
+			<column name="typeID" value="Combine_Default" />
+			<column name="useType" valueNumeric="0" />
+		</insert>
+		<insert tableName="product_collect_top">
+			<column name="id" valueNumeric="10" />
+			<column name="productID" value="taobao10" />
+			<column name="collectedNum" valueNumeric="10" />
+			<column name="statTime" value="2012-02-02" />
+			<column name="typeID" value="Combine_Default" />
+			<column name="useType" valueNumeric="0" />
+		</insert>
+	</changeSet>
+	<changeSet id="2" author="sh">
+		<insert tableName="product_collect_top">
+			<column name="id" valueNumeric="11" />
+			<column name="productID" value="taobao11" />
+			<column name="collectedNum" valueNumeric="11" />
+			<column name="statTime" value="2012-02-02" />
+			<column name="useType" valueNumeric="1" />
+		</insert>
+		<insert tableName="product_collect_top">
+			<column name="id" valueNumeric="12" />
+			<column name="productID" value="taobao12" />
+			<column name="collectedNum" valueNumeric="12" />
+			<column name="statTime" value="2012-02-02" />
+			<column name="useType" valueNumeric="1" />
+		</insert>
+		<insert tableName="product_collect_top">
+			<column name="id" valueNumeric="13" />
+			<column name="productID" value="taobao13" />
+			<column name="collectedNum" valueNumeric="13" />
+			<column name="statTime" value="2012-02-02" />
+			<column name="useType" valueNumeric="1" />
+		</insert>
+		<insert tableName="product_collect_top">
+			<column name="id" valueNumeric="14" />
+			<column name="productID" value="taobao14" />
+			<column name="collectedNum" valueNumeric="14" />
+			<column name="statTime" value="2012-02-02" />
+			<column name="useType" valueNumeric="1" />
+		</insert>
+		<insert tableName="product_collect_top">
+			<column name="id" valueNumeric="15" />
+			<column name="productID" value="taobao15" />
+			<column name="collectedNum" valueNumeric="15" />
+			<column name="statTime" value="2012-02-02" />
+			<column name="useType" valueNumeric="1" />
+		</insert>
+		<insert tableName="product_collect_top">
+			<column name="id" valueNumeric="16" />
+			<column name="productID" value="taobao16" />
+			<column name="collectedNum" valueNumeric="16" />
+			<column name="statTime" value="2012-02-02" />
+			<column name="useType" valueNumeric="1" />
+		</insert>
+		<insert tableName="product_collect_top">
+			<column name="id" valueNumeric="17" />
+			<column name="productID" value="taobao17" />
+			<column name="collectedNum" valueNumeric="17" />
+			<column name="statTime" value="2012-02-02" />
+			<column name="useType" valueNumeric="1" />
+		</insert>
+		<insert tableName="product_collect_top">
+			<column name="id" valueNumeric="18" />
+			<column name="productID" value="taobao18" />
+			<column name="collectedNum" valueNumeric="18" />
+			<column name="statTime" value="2012-02-02" />
+			<column name="useType" valueNumeric="1" />
+		</insert>
+		<insert tableName="product_collect_top">
+			<column name="id" valueNumeric="19" />
+			<column name="productID" value="taobao19" />
+			<column name="collectedNum" valueNumeric="19" />
+			<column name="statTime" value="2012-02-02" />
+			<column name="useType" valueNumeric="1" />
+		</insert>
+		<insert tableName="product_collect_top">
+			<column name="id" valueNumeric="20" />
+			<column name="productID" value="taobao20" />
+			<column name="collectedNum" valueNumeric="20" />
+			<column name="statTime" value="2012-02-02" />
+			<column name="useType" valueNumeric="1" />
+		</insert>
+	</changeSet>
+
+</databaseChangeLog>

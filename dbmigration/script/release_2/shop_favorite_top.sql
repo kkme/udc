@@ -1,0 +1,1 @@
+ALTER TABLE shop_favorite_top ADD index(statTime);

@@ -1,0 +1,1 @@
+ALTER TABLE device_info ADD UNIQUE(machineID, platform);

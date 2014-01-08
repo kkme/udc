@@ -1,0 +1,1 @@
+ALTER TABLE product_collect_top ADD index(statTime, typeID);

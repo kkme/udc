@@ -1,0 +1,1 @@
+ALTER TABLE user_basic_info ADD UNIQUE(email(26));

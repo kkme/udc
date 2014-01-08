@@ -1,0 +1,1 @@
+create table purchase_record(id BIGINT(13) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,userID varchar(320) NOT NULL,productID varchar(1024) NOT NULL,purchaseTime datetime NOT NULL,machineID varchar(128),networkID varchar(25),softwareVersion varchar(64),softwareName varchar(64),firmWareVersion varchar(64),referID varchar(1024)) ENGINE=InnoDB DEFAULT CHARSET=utf8;

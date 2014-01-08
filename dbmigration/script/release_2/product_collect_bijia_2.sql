@@ -1,0 +1,1 @@
+ALTER TABLE product_collect_bijia ADD index(productID(30));

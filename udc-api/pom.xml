@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>udc-parent</artifactId>
+		<groupId>com.koudai.udc</groupId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>udc-api</artifactId>
+	<packaging>war</packaging>
+	<name>udc-api</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.4</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.koudai.udc</groupId>
+			<artifactId>udc-persist</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+
+		<!-- webwork dependency start -->
+		<dependency>
+			<groupId>opensymphony</groupId>
+			<artifactId>webwork</artifactId>
+			<version>${webwork.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.opensymphony</groupId>
+			<artifactId>xwork</artifactId>
+			<version>1.2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.rifers</groupId>
+			<artifactId>rife-continuations</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>2.3.14</version>
+		</dependency>
+		<dependency>
+			<groupId>opensymphony</groupId>
+			<artifactId>oscore</artifactId>
+			<version>2.2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>ognl</groupId>
+			<artifactId>ognl</artifactId>
+			<version>3.0.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.taobao</groupId>
+			<artifactId>taobao-sdk</artifactId>
+			<version>java-online_standard-20120817</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.1.3</version>
+		</dependency>
+		<!-- webwork dependency end -->
+	</dependencies>
+
+	<build>
+		<finalName>udcApi</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<version>${jetty.plugin.version}</version>
+				<configuration>
+					<stopPort>5505</stopPort>
+					<stopKey>foo</stopKey>
+					<connectors>
+						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+							<port>${udc.api.port}</port>
+							<maxIdleTime>60000</maxIdleTime>
+						</connector>
+					</connectors>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>test</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<white.list>@taobao:chenlh0414,@sina:2644237823,@qq:E637E9C8430AD0461319CB30FA752913,@taobao:ericshuishen,@taobao:可爱兔子史俊,@taobao:Geilitestfortaobao,@taobao:Amethystmeng,@taobao:geilitester,@sina:1315624907,@taobao:lqh_1983,@taobao:天外无痕,@taobao:yangxuejiao1986,@taobao:秋果飘香潇潇,@taobao:鬼魅010,@taobao:vicky080613,@taobao:prettypig000,@sina:1898115451,@sina:1752553623,@sina:1937924093,@sina:1786655747,@sina:2710717957,@sina:1752209223,@sina:2528023974,@qq:06835D713E44C52034473F787F82B94A,@qq:5A337D5EA8A23A4BBD4A49D6B6B920CD,@qq:622CC7AC951F62A5C0CB1DB31E9B61B1,@qq:9BCB560FB4F35A017A7F58B942D1DE9D,@qq:7525FB625C77A77B21BF807E43BC0A9B,@qq:9FD09B80CC1718B110196719DE3D9B89,@qq:0D668CDD883D98219D251EB28C6A2A6D,@sina:2806351580,@sina:2806328302,@qq:EC5A2FA2DDD48106226FE94DEE985D39</white.list>
+				<cold.list>@taobao:可爱兔子史俊,@taobao:lqh_1983,@taobao:天外无痕,@taobao:yangxuejiao1986,@sina:1898115451,@sina:1752553623,@sina:1937924093,@qq:06835D713E44C52034473F787F82B94A,@qq:622CC7AC951F62A5C0CB1DB31E9B61B1,@qq:9FD09B80CC1718B110196719DE3D9B89</cold.list>
+
+				<taobao.mobile.app.key>12675396</taobao.mobile.app.key>
+				<taobao.mobile.app.secret>652ba692a64decc3f8507d3c6350527d</taobao.mobile.app.secret>
+				<taobao.meitu.app.key>21104102</taobao.meitu.app.key>
+				<taobao.meitu.app.secret>6473f0a4ffad6753ed2c43aa6f8afcff</taobao.meitu.app.secret>
+
+				<tencent.qq.meitu.app.key>100268469</tencent.qq.meitu.app.key>
+				<tencent.qq.meitu.page.id>1464915393</tencent.qq.meitu.page.id>
+				<tencent.qq.bijia.app.key>100268469</tencent.qq.bijia.app.key>
+				<tencent.qq.bijia.page.id>2238596914</tencent.qq.bijia.page.id>
+			</properties>
+		</profile>
+		<profile>
+			<id>pro</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<white.list>@taobao:可爱兔子史俊,@taobao:Geilitestfortaobao,@taobao:Amethystmeng,@taobao:geilitester,@sina:1315624907,@taobao:lqh_1983,@taobao:天外无痕,@taobao:yangxuejiao1986,@taobao:秋果飘香潇潇,@taobao:鬼魅010,@taobao:vicky080613,@taobao:prettypig000,@sina:1898115451,@sina:1752553623,@sina:1937924093,@sina:1786655747,@sina:2710717957,@sina:1752209223,@sina:2528023974,@qq:68C366E028FBCBD1ACCDDC2E92BF112F,@qq:AE6CF05128AD75CBD2002852E04401E0,@qq:02A350A9DBF9BAC1C11089529DC7AFFA,@qq:6063921A852BBCB89A578676A92F07E9,@qq:06835D713E44C52034473F787F82B94A,@qq:61ADC0F1EC7BCE7FA1CB6E4079F1B56B,@qq:81F8280F19FF9F6F55139D8A58859094</white.list>
+				<cold.list>@taobao:可爱兔子史俊,@taobao:lqh_1983,@taobao:天外无痕,@taobao:yangxuejiao1986,@sina:1898115451,@sina:1752553623,@sina:1937924093,@qq:68C366E028FBCBD1ACCDDC2E92BF112F,@qq:06835D713E44C52034473F787F82B94A,@qq:81F8280F19FF9F6F55139D8A58859094</cold.list>
+
+				<taobao.mobile.app.key>12316987</taobao.mobile.app.key>
+				<taobao.mobile.app.secret>cd6e1cebc7bd7bf37c626a140043e0b7</taobao.mobile.app.secret>
+				<taobao.meitu.app.key>12691959</taobao.meitu.app.key>
+				<taobao.meitu.app.secret>3e9ef2c82349853a474f607e01c396d8</taobao.meitu.app.secret>
+
+				<tencent.qq.meitu.app.key>100268441</tencent.qq.meitu.app.key>
+				<tencent.qq.meitu.page.id>1464915393</tencent.qq.meitu.page.id>
+				<tencent.qq.bijia.app.key>100272875</tencent.qq.bijia.app.key>
+				<tencent.qq.bijia.page.id>2238596914</tencent.qq.bijia.page.id>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>2.8.1</version>
+						<configuration>
+							<skipTests>true</skipTests>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+</project>

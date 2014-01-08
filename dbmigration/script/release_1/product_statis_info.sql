@@ -1,0 +1,1 @@
+create table product_statis_info(id BIGINT(13) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,productID varchar(1024),shopID varchar(1024),collectedNum int not NULL,sharedNum int not NULL,mayPurchasedNum int not NULL,browsedNum int not NULL,lastOperTime datetime not NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;

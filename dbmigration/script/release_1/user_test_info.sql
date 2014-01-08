@@ -1,0 +1,1 @@
+create table user_test_info(id BIGINT(13) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,userID varchar(320) NOT NULL,questionID varchar(10) NOT NULL,answerID varchar(100) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;

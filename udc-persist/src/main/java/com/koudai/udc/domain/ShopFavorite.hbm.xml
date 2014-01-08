@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.koudai.udc.domain">
+	<class name="ShopFavorite" table="shop_favorite">
+		<id column="ID" name="id" type="long">
+			<generator class="identity" />
+		</id>
+		<property name="shopId" column="shopID" not-null="true" type="string" />
+		<property name="favoriteTime" column="favoriteTime" not-null="true" type="timestamp" />
+		<property name="machineId" column="machineID" not-null="true" type="string" />
+		<property name="networkId" column="networkID" not-null="false" type="string" />
+		<property name="userId" column="userID" not-null="true" type="string" />
+		<property name="softwareVersion" column="softwareVersion" not-null="false" type="string" />
+		<property name="softwareName" column="softwareName" not-null="false" type="string" />
+		<property name="firmWareVersion" column="firmWareVersion" not-null="false" type="string" />
+		<property name="referId" column="referID" not-null="false" type="string" />
+		<property name="status" column="status" not-null="true" type="int" />
+	</class>
+</hibernate-mapping>

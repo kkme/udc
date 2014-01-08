@@ -1,0 +1,45 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.0//EN" "http://www.opensymphony.com/xwork/xwork-1.1.dtd">
+<xwork>
+	<package name="udc-statis-common" extends="udc-statis-default">
+		<result-types>
+	      <result-type name="json" class="com.koudai.udc.statis.webwork.dispatcher.json.JSONResult" />
+	    </result-types>
+	    
+		<action name="getEditorQuantitativeData" class="GetEditorQuantitativeData.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+	    
+		<action name="getProductQuantitativeData" class="GetProductQuantitativeData.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+	    
+		<action name="getProductstatisData" class="GetProductstatisData.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+	    
+		<action name="getProductTypeProportion" class="GetProductTypeProportion.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+	    
+	</package>
+</xwork>

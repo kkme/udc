@@ -1,0 +1,1 @@
+ALTER TABLE user_qq_info ADD CONSTRAINT idx_uqi_userid_platform UNIQUE (userID, platform);

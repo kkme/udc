@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="ProductStatis">
+
+	<typeAlias alias="productStatis" type="com.koudai.udc.statis.domain.ProductStatis" />
+
+	<insert id="save" parameterClass="productStatis">
+		insert into product_statis (id,productID,clickedNum,collectedNum,mayPurchasedNum)
+		values (#id#,#productId#,#clickedNum#,#collectedNum#,#purchasedNum#)
+		<selectKey keyProperty="id" resultClass="long">
+			SELECT LAST_INSERT_ID() AS ID 
+		</selectKey>
+	</insert>
+	
+	<select id="getProductStatisByProductId" parameterClass="String" resultClass="productStatis">
+		select id as id,productID as productId,clickedNum as clickedNum,collectedNum as collectedNum,mayPurchasedNum as purchasedNum
+		from product_statis
+		where productID = #productId#
+	</select>
+	
+	<update id="updateStatisNumByProductId" parameterClass="productStatis">
+		update product_statis set
+		clickedNum = clickedNum + #clickedNum#,
+		collectedNum = collectedNum + #collectedNum#,
+		mayPurchasedNum = mayPurchasedNum + #purchasedNum#
+	    where productID = #productId#
+	</update>
+
+</sqlMap>

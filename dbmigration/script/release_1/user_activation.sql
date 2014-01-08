@@ -1,0 +1,1 @@
+create table user_activation(id BIGINT(13) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,userID varchar(320) NOT NULL,yellowDiamond boolean default 0,iosPay boolean default 0,alreadyTest boolean default 0) ENGINE=InnoDB DEFAULT CHARSET=utf8;

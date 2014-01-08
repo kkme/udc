@@ -1,0 +1,1 @@
+ALTER TABLE purchase_record ADD UNIQUE(userID(50), productID(30));

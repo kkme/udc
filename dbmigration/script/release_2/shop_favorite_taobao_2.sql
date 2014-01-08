@@ -1,0 +1,1 @@
+ALTER TABLE shop_favorite_taobao ADD UNIQUE(userID(50), shopID(30));

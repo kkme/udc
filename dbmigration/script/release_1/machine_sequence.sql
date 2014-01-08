@@ -1,0 +1,1 @@
+create table machineid_sequenceid(id BIGINT(12) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,machineID varchar(128) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;

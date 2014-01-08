@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="TypeInfo">
+
+	<typeAlias alias="typeInfo" type="com.koudai.udc.statis.domain.TypeInfo" />
+
+	<insert id="save" parameterClass="typeInfo">
+		insert into type_info (id,typeID,typeName)
+		values (#id#,#typeId#,#typeName#)
+		<selectKey keyProperty="id" resultClass="long">
+			SELECT LAST_INSERT_ID() AS ID   
+		</selectKey>
+	</insert>
+
+</sqlMap>

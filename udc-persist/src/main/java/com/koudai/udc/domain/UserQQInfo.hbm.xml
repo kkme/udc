@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.koudai.udc.domain">
+	<class name="UserQQInfo" table="user_qq_info">
+		<id column="ID" name="id" type="long">
+			<generator class="identity" />
+		</id>
+		<property name="userId" column="userID" not-null="true" type="string" />
+		<property name="token" column="token" not-null="true" type="string" />
+		<property name="expire" column="expire" not-null="true" type="int" />
+		<property name="nick" column="userNick" not-null="true" type="string" />
+		<property name="createTime" column="createTime" not-null="true" type="timestamp" />
+		<property column="platform" length="64" name="platform" not-null="true" type="com.koudai.udc.domain.LoginPlatformUserType" />
+	</class>
+</hibernate-mapping>

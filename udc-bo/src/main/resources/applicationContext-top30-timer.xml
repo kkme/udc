@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="productTop30SchedulerFactory" lazy-init="false" autowire="no" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+	    <property name="triggers">
+	        <list>
+	            <ref bean="productTop30CronTrigger"/>
+	        </list>
+	    </property>
+	</bean>
+	        
+	<bean id="productTop30CronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+	    <property name="jobDetail">
+	        <ref bean="productTop30JobDetail"/>
+	    </property>
+	    <property name="cronExpression">
+	        <value>0 30 2 ? * MON</value>
+	    </property>
+	</bean>
+	
+	<bean id="productTop30JobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+	    <property name="targetObject">
+	        <ref bean="productTop30Timer"/>
+	    </property>
+	    <property name="targetMethod">
+	        <value>run</value>
+	    </property>
+	</bean>
+	
+	<bean id="productTop30Timer" class="com.koudai.udc.timer.ProductTop30Timer">
+	    <property name="getTopProductService">
+	        <ref bean="getTopProductService"/>
+	    </property>
+	    <property name="filePathConfiguration">
+	        <ref bean="filePathConfiguration"/>
+	    </property>
+	</bean>
+</beans>

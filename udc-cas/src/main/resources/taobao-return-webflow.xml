@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+                          
+    <on-start>
+        <evaluate expression="initialFlowSetupAction" />
+    </on-start>
+    
+    <action-state id="verifyTaoBaoToken">
+    		<evaluate expression="verifyTaoBaoTokenAction" />
+		<transition on="success" to="taobaoNickExistsCheck" />
+		<transition on="haslogin" to="generateTicket" />
+	</action-state>
+	
+	<decision-state id="taobaoNickExistsCheck">
+		<if test="flowScope.nick != null" then="checkTaoBaoUserExist" else="lastRedirect" />
+	</decision-state>
+	
+	<action-state id="checkTaoBaoUserExist">
+		<evaluate expression="checkTaoBaoUserExistAction" />
+		<transition on="success" to="generateTicket"></transition>
+		<transition on="error" to="viewServiceErrorView"></transition>
+	</action-state>
+	
+	<action-state id="generateTicket">
+		<evaluate expression="generatorCASTicketAction" />
+		<transition on="success" to="sendTicketGrantingTicket"></transition>
+		<transition on="error" to="viewServiceErrorView"></transition>
+	</action-state>
+	
+	<action-state id="sendTicketGrantingTicket">
+		<evaluate expression="sendTicketGrantingTicketAction" />
+		<transition on="success" to="serviceCheck" />
+	</action-state>
+	
+	<decision-state id="serviceCheck">
+		<if test="flowScope.service != null" then="generateServiceTicket" else="loginSuccess" />
+	</decision-state>
+	
+	<action-state id="generateServiceTicket">
+		<evaluate expression="generateServiceTicketAction" />
+		<transition on="success" to ="warn" />
+		<transition on="error" to="viewLoginForm" />
+		<transition on="gateway" to="lastRedirect" />
+	</action-state>
+	
+	<action-state id="loginSuccess">
+		<evaluate expression="loginSuccessAction" />
+		<transition on="success" to="viewGenericLoginSuccess" />
+	</action-state>
+	
+	<decision-state id="warn">
+		<if test="flowScope.warnCookieValue" then="showWarningView" else="lastRedirect" />
+	</decision-state>
+	
+	<action-state id="lastRedirect">
+	  <evaluate expression="lastRedirectFormAction" />
+	  <transition on="success" to="lastRedirectForm" />
+	</action-state>
+	
+	<view-state id="lastRedirectForm" view="lastRedirectView"/>
+	
+	<end-state id="viewGenericLoginSuccess" view="casLoginGenericSuccessView" />
+
+	<end-state id="showWarningView" view="casLoginConfirmView" />
+
+	<end-state id="viewServiceErrorView" view="viewServiceErrorForTaoBaoView" />
+    
+    <end-state id="viewServiceSsoErrorView" view="viewServiceSsoErrorView" />
+
+	<global-transitions>
+		<transition to="viewServiceErrorForTaoBaoView" on-exception="org.springframework.webflow.execution.repository.NoSuchFlowExecutionException" />
+        <transition to="viewServiceSsoErrorView" on-exception="org.jasig.cas.services.UnauthorizedSsoServiceException" />
+		<transition to="viewServiceErrorForTaoBaoView" on-exception="org.jasig.cas.services.UnauthorizedServiceException" />
+	</global-transitions>
+
+</flow>

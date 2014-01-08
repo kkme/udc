@@ -1,0 +1,712 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.0//EN" "http://www.opensymphony.com/xwork/xwork-1.1.dtd">
+<xwork>
+	<package name="udc-common" extends="udc-default">
+		<result-types>
+	      <result-type name="json" class="com.koudai.udc.webwork.dispatcher.json.JSONResult" />
+	    </result-types>
+	    
+		<action name="uploadDeviceInfo" class="UploadDeviceInfo.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+	    
+		<action name="uploadBindingInfo" class="UploadBindingInfo.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+	    
+		<action name="uploadProductCollect" class="UploadProductCollect.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+	    
+		<action name="cancelProductCollect" class="CancelProductCollect.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+	    
+		<action name="uploadShopFavorite" class="UploadShopFavorite.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+	    
+		<action name="cancelShopFavorite" class="CancelShopFavorite.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+	    
+		<action name="getProductCollectMd5" class="GetProductCollectMd5.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+	      	<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+		</action>
+	    
+		<action name="getShopFavoriteMd5" class="GetShopFavoriteMd5.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+	      	<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+		</action>
+	    
+		<action name="getProductCollect" class="GetProductCollect.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+	      	<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+		</action>
+	    
+		<action name="getShopFavorite" class="GetShopFavorite.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+	      	<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+		</action>
+	    
+		<action name="thridPartyUserLogin" class="ThridPartyUserLogin.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+	    
+		<action name="uploadThridPartyUserInfo" class="UploadThridPartyUserInfo.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+	    
+		<action name="uploadBindingInfo2" class="UploadBindingInfoV2.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+	      	<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+		</action>
+		
+		<action name="uploadProductCollect2" class="UploadProductCollectV2.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="uploadShopFavorite2" class="UploadShopFavoriteV2.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="replaceUserData" class="ReplaceUserData.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="batchCancelUserData" class="BatchCancelUserData.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="getUserColletProductNum" class="GetUserCollectProductNum.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+	      	<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+		</action>
+		
+		<action name="getUserFavoriteShopNum" class="GetUserFavoriteShopNum.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+	      	<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+		</action>
+		
+		<action name="getProductCollectedTop" class="GetProductCollectedTop.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+	      	<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+		</action>
+		
+		<action name="uploadProductCollectTop" class="UploadProductCollectTop.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="uploadProductCollectBijia" class="UploadProductCollectBijia.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="uploadProductCollectPriceRemind" class="UploadProductCollectPriceRemind.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="cancelProductCollectBijia" class="CancelProductCollectBijia.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="uploadPriceRemind" class="UploadPriceRemind.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="cancelPriceRemind" class="CancelPriceRemind.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="uploadPriceRemindAnonymous" class="UploadPriceRemindAnonymous.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="getProductCollectBijia" class="GetProductCollectBijia.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+	      	<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+		</action>
+		
+		<action name="getProductIDCollectedCount" class="GetProductIDCollectedCount.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+	      	<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+		</action>
+		
+		<action name="getShopIDFavoritedCount" class="GetShopIDFavoritedCount.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+	      	<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+		</action>
+		
+		<action name="uploadMachineID" class="UploadMachineID.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="getMachineID" class="GetMachineID.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+	      	<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+		</action>
+		
+		<action name="uploadIosToken" class="UploadIosToken.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="isUserProductCollected" class="IsUserProductCollected.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+	      	<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+		</action>
+		
+		<action name="isUserShopFavorited" class="IsUserShopFavorited.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+	      	<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+		</action>
+		
+		<action name="getIosPushDiscountData" class="GetIosPushDiscountData.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="getAndroidPushDiscountData" class="GetAndroidPushDiscountData.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="uploadIosPushDiscount" class="UploadIosPushDiscount.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="uploadAndroidPushDiscount" class="UploadAndroidPushDiscount.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+				
+		<action name="uploadProductCollectWeekTop" class="UploadProductCollectWeekTop.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+				
+		<action name="getProductCollectedWeekTop" class="GetProductCollectedWeekTop.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+	      	<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+		</action>
+				
+		<action name="getUserCollectionAndPurchase" class="GetUserCollectionAndPurchase.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+	      	<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+		</action>
+		
+		<action name="isUserActive" class="IsUserActive.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="isUserYellowDiamond" class="IsUserYellowDiamond.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="uploadUserIosPayInfo" class="UploadUserIosPayInfo.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="uploadUserTestInfo" class="UploadUserTestInfo.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="getUserTestInfo" class="GetUserTestInfo.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+	      	<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+		</action>
+		
+		<action name="uploadProductCollect3" class="UploadProductCollectV3.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="uploadShopFavorite3" class="UploadShopFavoriteV3.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="uploadTaobaoUserInfo" class="UploadTaobaoUserInfo.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="uploadSinaWeiboUserInfo" class="UploadSinaWeiboUserInfo.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="uploadQQUserInfo" class="UploadQQUserInfo.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="uploadPurchaseRecord" class="UploadPurchaseRecord.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="uploadTaobaoProductCollect" class="UploadTaobaoProductCollect.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+	      	<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+		</action>
+		
+		<action name="uploadTaobaoShopFavorite" class="UploadTaobaoShopFavorite.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+	      	<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+		</action>
+		
+		<action name="removeTaobaoProductCollect" class="RemoveTaobaoProductCollect.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="removeTaobaoShopFavorite" class="RemoveTaobaoShopFavorite.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="isUserColdStart" class="IsUserColdStart.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+	      	<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+		</action>
+		
+		<action name="isUserFollowOfficialQZone" class="IsUserFollowOfficialQZone.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+	      	<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+		</action>
+		
+		<action name="uploadUserAlgorithmInfo" class="UploadUserAlgorithmInfo.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="getUserAlgorithmInfo" class="GetUserAlgorithmInfo.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+	      	<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+		</action>
+				
+		<action name="uploadBindingInfo3" class="UploadBindingInfoV3.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+	      	<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+		</action>
+			
+		<action name="uploadAllProductCollectedTop30" class="UploadAllProductCollectedTop30.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+				
+		<action name="getAllProductCollectedTop30" class="GetAllProductCollectedTop30.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+	      	<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+		</action>
+						
+		<action name="getTaobaoSellerSid" class="GetTaobaoSellerSid.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="getShopFavorite2" class="GetShopFavoriteV2.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+	      	<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+		</action>
+		
+		<action name="getTaobaoUserId" class="GetTaobaoUserId.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+	      	<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+		</action>
+		
+		<action name="uploadTaobaoBindingInfo" class="UploadTaobaoBindingInfo.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="getTaobaoBindingInfo" class="GetTaobaoBindingInfo.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+		</action>
+		
+		<action name="cancelTaobaoBinding" class="CancelTaobaoBinding.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+				
+		<action name="getDeviceToken" class="GetDeviceToken.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<interceptor-ref name="myDefaultWebStackWithoutTransaction" />
+		</action>
+				
+		<action name="getIosPushDiscountData2" class="GetIosPushDiscountDataV2.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="getAndroidPushDiscountData2" class="GetAndroidPushDiscountDataV2.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+				
+		<action name="uploadIosPushDiscount2" class="UploadIosPushDiscountV2.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+		<action name="uploadAndroidPushDiscount2" class="UploadAndroidPushDiscountV2.spring.action">
+			<result name="success" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+			<result name="error" type="json">
+				<param name="jsonObjectProperty">result</param>
+	      	</result>
+		</action>
+		
+	</package>
+</xwork>

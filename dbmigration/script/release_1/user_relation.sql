@@ -1,0 +1,1 @@
+create table user_relation(userID1 varchar(320) NOT NULL,userID2 varchar(320) NOT NULL,primary key(userID1(30), userID2(30))) ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -1,0 +1,1 @@
+create table user_qq_info(id BIGINT(12) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,userID varchar(64) NOT NULL,token varchar(64) NOT NULL,expire int NOT NULL,userNick varchar(64) NOT NULL,createTime datetime NOT NULL,platform varchar(64) NOT NULL default "meitu") ENGINE=InnoDB DEFAULT CHARSET=utf8;

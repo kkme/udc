@@ -1,0 +1,1 @@
+create table ios_push(id BIGINT(12) UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,uuid varchar(64) NOT NULL,token varchar(128) NOT NULL,createTime datetime not NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8;

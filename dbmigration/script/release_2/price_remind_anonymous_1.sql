@@ -1,0 +1,1 @@
+ALTER TABLE price_remind_anonymous ADD index(productID(30));

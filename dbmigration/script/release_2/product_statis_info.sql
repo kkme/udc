@@ -1,0 +1,1 @@
+ALTER TABLE product_statis_info ADD index(productID(30));

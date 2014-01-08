@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.koudai.udc.domain">
+	<class name="UserAlgorithmInfo" table="user_rec_algorithm_info">
+		<id column="ID" name="id" type="long">
+			<generator class="identity" />
+		</id>
+		<property name="userId" column="userID" not-null="true" type="string" />
+		<property name="algorithmVersion" column="algorithmVersion" not-null="true" type="int" />
+		<property name="sessionVersion" column="sessionVersion" not-null="false" type="string" />
+		<property name="userStyle" column="userStyle" not-null="false" type="string" />
+		<property name="updateTime" column="updateTime" not-null="true" type="timestamp" />
+	</class>
+</hibernate-mapping>

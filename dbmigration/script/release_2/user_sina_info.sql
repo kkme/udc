@@ -1,0 +1,1 @@
+ALTER TABLE user_sina_info ADD CONSTRAINT idx_usi_userid_platform UNIQUE (userID, platform);

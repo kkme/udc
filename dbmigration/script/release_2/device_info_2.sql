@@ -1,0 +1,1 @@
+alter table device_info add index idx_di_softwareVersion_platform (softwareVersion(10), platform);

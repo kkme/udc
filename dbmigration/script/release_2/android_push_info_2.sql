@@ -1,0 +1,1 @@
+alter table android_push_info add index idx_machineID_createTime (machineID(60),createTime);

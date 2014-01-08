@@ -1,0 +1,1 @@
+ALTER TABLE user_test_info ADD UNIQUE UID_QID_AID_UNI_IDX(userID(50),questionID,answerID);

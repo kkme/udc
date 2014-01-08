@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="counterService" class="com.koudai.udc.domain.service.impl.CounterServiceImpl">
+		<property name="productCollectedCountDAOW">
+			<ref bean="productCollectedCountDAOW" />
+		</property>
+		<property name="shopFavoritedCountDAOW">
+			<ref bean="shopFavoritedCountDAOW" />
+		</property>
+		<property name="productCollectedCountFactory">
+			<ref bean="productCollectedCountFactory" />
+		</property>
+		<property name="shopFavoritedCountFactory">
+			<ref bean="shopFavoritedCountFactory" />
+		</property>
+	</bean>
+
+</beans>

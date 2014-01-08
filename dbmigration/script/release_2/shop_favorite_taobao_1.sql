@@ -1,0 +1,1 @@
+ALTER TABLE shop_favorite_taobao ADD index(userID(30));

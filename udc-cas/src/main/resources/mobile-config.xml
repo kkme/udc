@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:webflow="http://www.springframework.org/schema/webflow-config"
+       xmlns:p="http://www.springframework.org/schema/p"       
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/webflow-config http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.0.xsd">
+       
+    	<bean id="mobileViewMappings" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/mobile/success.html">mobileSuccessController</prop>
+				<prop key="/mobile/error.html">mobileErrorController</prop>
+				<prop key="/mobile/taobao.html">mobileTaobaoV1Controller</prop>
+				<prop key="/mobile/taobao_v2.html">mobileTaobaoV2Controller</prop>
+				<prop key="/mobile/tencent_qq.html">mobileQQV1Controller</prop>
+				<prop key="/mobile/tencent_qq_v2.html">mobileQQV2Controller</prop>
+				<prop key="/mobile/sina_weibo.html">mobileSinaWeiboV1Controller</prop>
+				<prop key="/mobile/sina_weibo_v2.html">mobileSinaWeiboV2Controller</prop>
+				<prop key="/mobile/renren.html">mobileRenrenV1Controller</prop>
+				<prop key="/mobile/renren_v2.html">mobileRenrenV2Controller</prop>
+				<prop key="/mobile/douban.html">mobileDoubanController</prop>
+				<prop key="/mobile/loginTaobao.html">mobileLoginTaobaoController</prop>
+				<prop key="/mobile/loginSinaWeibo.html">mobileLoginSinaWeiboController</prop>
+				<prop key="/mobile/loginQQ.html">mobileLoginQQController</prop>
+				<prop key="/mobile/loginRenren.html">mobileLoginRenrenController</prop>
+				<prop key="/mobile/loginDouban.html">mobileLoginDoubanController</prop>
+				<prop key="/mobile/logoutTaobao.html">mobileLogoutTaobaoController</prop>
+				<prop key="/mobile/logoutSinaWeibo.html">mobileLogoutSinaWeiboController</prop>
+				<prop key="/mobile/logoutQQ.html">mobileLogoutQQController</prop>
+				<prop key="/mobile/logoutRenren.html">mobileLogoutRenrenController</prop>
+				<prop key="/mobile/logoutDouban.html">mobileLogoutDoubanController</prop>
+				<prop key="/mobile/getTaobaoLoginUrl.html">mobileGetTaobaoLoginUrlController</prop>
+				<prop key="/mobile/getSinaWeiboLoginUrl.html">mobileGetSinaWeiboLoginUrlController</prop>
+				<prop key="/mobile/getQQLoginUrl.html">mobileGetQQLoginUrlController</prop>
+				<prop key="/mobile/getThirdPartyLoginUrl.html">mobileGetThirdPartyLoginUrlController</prop>
+			</props>
+		</property>
+		<property name="alwaysUseFullPath" value="true" />
+	</bean>
+	
+	<bean id="mobileSuccessController" class="com.koudai.udc.controller.MobileResultController" scope="prototype">
+		<property name="universalViewName" value="mobileSuccess" />
+		<property name="windows8ViewName" value="mobileWin8Success" />
+	</bean>
+	
+	<bean id="mobileErrorController" class="com.koudai.udc.controller.MobileResultController" scope="prototype">
+		<property name="universalViewName" value="mobileError" />
+		<property name="windows8ViewName" value="mobileWin8Error" />
+	</bean>
+	
+	<bean id="mobileTaobaoV1Controller" class="com.koudai.udc.controller.MobileTaobaoV1Controller" scope="prototype">
+		<property name="taobaoUserInfoService">
+			<ref bean="taobaoUserInfoService" />
+		</property>
+		<property name="taobaoConfiguration">
+			<ref bean="taobaoConfiguration" />
+		</property>
+		<property name="successView" value="mobileSuccess" />
+		<property name="errorView" value="mobileError" />
+		<property name="transferView" value="mobileTaobao" />
+	</bean>
+	
+	<bean id="mobileTaobaoV2Controller" class="com.koudai.udc.controller.MobileTaobaoV2Controller" scope="prototype">
+		<property name="taobaoUserInfoService">
+			<ref bean="taobaoUserInfoService" />
+		</property>
+		<property name="taobaoConfiguration">
+			<ref bean="taobaoConfiguration" />
+		</property>
+		<property name="successUrl" value="${mobile_success_url}" />
+		<property name="errorUrl" value="${mobile_error_url}" />
+		<property name="userInfoUrl" value="${user_info_url}" />
+		<property name="updateBasicInfoUrl" value="${update_basic_info_url}" />
+	</bean>
+	
+	<bean id="taobaoUserInfoService" class="com.koudai.udc.service.impl.TaobaoUserInfoServiceImpl"/>
+	
+	<bean id="mobileQQV1Controller" class="com.koudai.udc.controller.MobileQQV1Controller" scope="prototype">
+		<property name="qqUserInfoService">
+			<ref bean="qqUserInfoService" />
+		</property>
+		<property name="qqConfiguration">
+			<ref bean="qqConfiguration" />
+		</property>
+		<property name="successView" value="mobileSuccess" />
+		<property name="errorView" value="mobileError" />
+		<property name="transferView" value="mobileQQ" />
+	</bean>
+	
+	<bean id="mobileQQV2Controller" class="com.koudai.udc.controller.MobileQQV2Controller" scope="prototype">
+		<property name="qqUserInfoService">
+			<ref bean="qqUserInfoService" />
+		</property>
+		<property name="qqConfiguration">
+			<ref bean="qqConfiguration" />
+		</property>
+		<property name="successUrl" value="${mobile_success_url}" />
+		<property name="errorUrl" value="${mobile_error_url}" />
+		<property name="userInfoUrl" value="${user_info_url}" />
+		<property name="updateBasicInfoUrl" value="${update_basic_info_url}" />
+	</bean>
+	
+	<bean id="qqUserInfoService" class="com.koudai.udc.service.impl.QQUserInfoServiceImpl"/>
+	
+	<bean id="mobileSinaWeiboV1Controller" class="com.koudai.udc.controller.MobileSinaWeiboV1Controller" scope="prototype">
+		<property name="sinaWeiboUserInfoService">
+			<ref bean="sinaWeiboUserInfoService" />
+		</property>
+		<property name="sinaConfiguration">
+			<ref bean="sinaConfiguration" />
+		</property>
+		<property name="successView" value="mobileSuccess" />
+		<property name="errorView" value="mobileError" />
+		<property name="transferView" value="mobileSina" />
+	</bean>
+	
+	<bean id="mobileSinaWeiboV2Controller" class="com.koudai.udc.controller.MobileSinaWeiboV2Controller" scope="prototype">
+		<property name="sinaWeiboUserInfoService">
+			<ref bean="sinaWeiboUserInfoService" />
+		</property>
+		<property name="sinaConfiguration">
+			<ref bean="sinaConfiguration" />
+		</property>
+		<property name="successUrl" value="${mobile_success_url}" />
+		<property name="errorUrl" value="${mobile_error_url}" />
+		<property name="userInfoUrl" value="${user_info_url}" />
+		<property name="updateBasicInfoUrl" value="${update_basic_info_url}" />
+	</bean>
+	
+	<bean id="sinaWeiboUserInfoService" class="com.koudai.udc.service.impl.SinaWeiboUserInfoServiceImpl"/>
+	
+	<bean id="mobileRenrenV1Controller" class="com.koudai.udc.controller.MobileRenrenV1Controller" scope="prototype">
+		<property name="renrenConfiguration">
+			<ref bean="renrenConfiguration" />
+		</property>
+		<property name="successView" value="mobileSuccess" />
+		<property name="errorView" value="mobileError" />
+		<property name="transferView" value="mobileRenren" />
+	</bean>
+	
+	<bean id="mobileRenrenV2Controller" class="com.koudai.udc.controller.MobileRenrenV2Controller" scope="prototype">
+		<property name="renrenConfiguration">
+			<ref bean="renrenConfiguration" />
+		</property>
+		<property name="successUrl" value="${mobile_success_url}" />
+		<property name="errorUrl" value="${mobile_error_url}" />
+	</bean>
+	
+	<bean id="mobileDoubanController" class="com.koudai.udc.controller.MobileDoubanController" scope="prototype">
+		<property name="doubanConfiguration">
+			<ref bean="doubanConfiguration" />
+		</property>
+		<property name="cookieControllerService">
+			<ref bean="cookieControllerService" />
+		</property>
+		<property name="successUrl" value="${mobile_success_url}" />
+		<property name="errorUrl" value="${mobile_error_url}" />
+	</bean>
+	
+	<bean id="mobileLoginTaobaoController" class="com.koudai.udc.controller.MobileLoginTaobaoController" scope="prototype">
+		<property name="taobaoConfiguration">
+			<ref bean="taobaoConfiguration" />
+		</property>
+	</bean>
+	
+	<bean id="mobileLoginSinaWeiboController" class="com.koudai.udc.controller.MobileLoginSinaWeiboController" scope="prototype">
+		<property name="sinaConfiguration">
+			<ref bean="sinaConfiguration" />
+		</property>
+	</bean>
+	
+	<bean id="mobileLoginQQController" class="com.koudai.udc.controller.MobileLoginQQController" scope="prototype">
+		<property name="qqConfiguration">
+			<ref bean="qqConfiguration" />
+		</property>
+	</bean>
+	
+	<bean id="mobileLoginRenrenController" class="com.koudai.udc.controller.MobileLoginRenrenController" scope="prototype">
+		<property name="renrenConfiguration">
+			<ref bean="renrenConfiguration" />
+		</property>
+	</bean>
+	
+	<bean id="mobileLoginDoubanController" class="com.koudai.udc.controller.MobileLoginDoubanController" scope="prototype">
+		<property name="doubanConfiguration">
+			<ref bean="doubanConfiguration" />
+		</property>
+		<property name="cookieControllerService">
+			<ref bean="cookieControllerService" />
+		</property>
+		<property name="errorUrl" value="${mobile_error_url}" />
+	</bean>
+	
+	<bean id="mobileLogoutTaobaoController" class="com.koudai.udc.controller.MobileLogoutTaobaoController" scope="prototype">
+		<property name="successView" value="mobileSuccess" />
+		<property name="errorView" value="mobileError" />
+	</bean>
+	
+	<bean id="mobileLogoutSinaWeiboController" class="com.koudai.udc.controller.MobileLogoutSinaWeiboController" scope="prototype">
+		<property name="successView" value="mobileSuccess" />
+		<property name="errorView" value="mobileError" />
+	</bean>
+	
+	<bean id="mobileLogoutQQController" class="com.koudai.udc.controller.MobileLogoutQQController" scope="prototype">
+		<property name="successView" value="mobileSuccess" />
+		<property name="errorView" value="mobileError" />
+	</bean>
+	
+	<bean id="mobileLogoutRenrenController" class="com.koudai.udc.controller.MobileLogoutRenrenController" scope="prototype">
+		<property name="successView" value="mobileSuccess" />
+		<property name="errorView" value="mobileError" />
+	</bean>
+	
+	<bean id="mobileLogoutDoubanController" class="com.koudai.udc.controller.MobileLogoutDoubanController" scope="prototype">
+		<property name="successView" value="mobileSuccess" />
+		<property name="errorView" value="mobileError" />
+	</bean>
+	
+	<bean id="mobileGetTaobaoLoginUrlController" class="com.koudai.udc.controller.MobileGetTaobaoLoginUrlController" scope="prototype">
+		<property name="taobaoConfiguration">
+			<ref bean="taobaoConfiguration" />
+		</property>
+	</bean>
+	
+	<bean id="mobileGetSinaWeiboLoginUrlController" class="com.koudai.udc.controller.MobileGetSinaWeiboLoginUrlController" scope="prototype">
+		<property name="sinaConfiguration">
+			<ref bean="sinaConfiguration" />
+		</property>
+	</bean>
+	
+	<bean id="mobileGetQQLoginUrlController" class="com.koudai.udc.controller.MobileGetQQLoginUrlController" scope="prototype">
+		<property name="qqConfiguration">
+			<ref bean="qqConfiguration" />
+		</property>
+	</bean>
+	
+	<bean id="mobileGetThirdPartyLoginUrlController" class="com.koudai.udc.controller.MobileGetThirdPartyLoginUrlController" scope="prototype">
+		<property name="taobaoConfiguration">
+			<ref bean="taobaoConfiguration" />
+		</property>
+		<property name="sinaConfiguration">
+			<ref bean="sinaConfiguration" />
+		</property>
+		<property name="qqConfiguration">
+			<ref bean="qqConfiguration" />
+		</property>
+	</bean>
+	
+</beans>

@@ -1,0 +1,1 @@
+ALTER TABLE product_type ADD UNIQUE(productID(100), typeID);

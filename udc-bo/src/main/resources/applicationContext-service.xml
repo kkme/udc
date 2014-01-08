@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="filePathConfiguration" class="com.koudai.udc.service.impl.FilePathConfiguration">
+		<constructor-arg>
+			<ref local="filePathProperties" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="filePathProperties" class="com.koudai.udc.utils.FileBasedProperties">
+		<constructor-arg>
+			<value>filePath</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="dataReportService" class="com.koudai.udc.service.impl.DataReportServiceImpl">
+		<property name="getTopProductService">
+			<ref bean="getTopProductService" />
+		</property>
+	</bean>
+
+	<bean id="editorService" class="com.koudai.udc.service.impl.EditorServiceimpl">
+		<property name="filePathConfiguration">
+			<ref bean="filePathConfiguration" />
+		</property>
+		<property name="productRecommendDAO">
+			<ref bean="productRecommendDAO" />
+		</property>
+		<property name="productTypeDAO">
+			<ref bean="productTypeDAO" />
+		</property>
+		<property name="productStatisDAO">
+			<ref bean="productStatisDAO" />
+		</property>
+		<property name="productRecommendFactory">
+			<ref bean="productRecommendFactory" />
+		</property>
+		<property name="productTypeFactory">
+			<ref bean="productTypeFactory" />
+		</property>
+		<property name="productStatisFactory">
+			<ref bean="productStatisFactory" />
+		</property>
+		<property name="transactionTemplate">
+			<ref bean="transactionTemplate" />
+		</property>
+	</bean>
+
+	<bean id="productStatisService" class="com.koudai.udc.service.impl.ProductStatisServiceImpl">
+		<property name="productStatisDAO">
+			<ref bean="productStatisDAO" />
+		</property>
+		<property name="productStatisPeriodDAO">
+			<ref bean="productStatisPeriodDAO" />
+		</property>
+		<property name="productStatisFactory">
+			<ref bean="productStatisFactory" />
+		</property>
+		<property name="productStatisPeriodFactory">
+			<ref bean="productStatisPeriodFactory" />
+		</property>
+		<property name="filePathConfiguration">
+			<ref bean="filePathConfiguration" />
+		</property>
+		<property name="transactionTemplate">
+			<ref bean="transactionTemplate" />
+		</property>
+	</bean>
+
+	<bean id="getTopProductService" class="com.koudai.udc.service.impl.GetTopProductServiceImpl">
+		<property name="filePathConfiguration">
+			<ref bean="filePathConfiguration" />
+		</property>
+	</bean>
+
+</beans>

@@ -1,0 +1,1 @@
+ALTER TABLE type_info ADD UNIQUE(typeID);

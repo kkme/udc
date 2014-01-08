@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.koudai.udc.domain">
+	<class name="ProductCollectTop" table="product_collect_top">
+		<id column="ID" name="id" type="long">
+			<generator class="identity" />
+		</id>
+		<property name="productId" column="productID" not-null="true" type="string" />
+		<property name="collectedNum" column="collectedNum" not-null="true" type="int" />
+		<property name="typeId" column="typeID" not-null="false" type="string" />
+		<property name="statTime" column="statTime" not-null="true" type="timestamp" />
+		<property name="useType" column="useType" not-null="true" type="int" />
+	</class>
+</hibernate-mapping>

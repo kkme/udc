@@ -1,0 +1,1 @@
+ALTER TABLE shop_favorite ADD index idx_sf_favoriteTime(favoriteTime);

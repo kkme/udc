@@ -1,0 +1,9 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.0//EN" "http://www.opensymphony.com/xwork/xwork-1.1.dtd">
+<xwork>
+	
+	<!-- include interceptors -->
+	<include file="xwork-udc-default.xml" />
+	
+	<include file="xwork-udc-action.xml" />
+	
+</xwork>
